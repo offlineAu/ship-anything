@@ -1,0 +1,39 @@
+{
+  "name": "ship-anything",
+  "version": "0.1.0",
+  "description": "Install SHIP ANYTHING agents, skills and workflows into any project for Claude Code, Codex, OpenCode, Cursor, Gemini CLI or any Agent Skills-compatible agent.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "ship-anything": "bin/ship-anything.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "content",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "bundle-content": "node scripts/bundle-content.mjs",
+    "prepack": "node scripts/bundle-content.mjs"
+  },
+  "keywords": [
+    "agent-skills",
+    "claude-code",
+    "codex",
+    "opencode",
+    "cursor",
+    "gemini-cli",
+    "ai-agents",
+    "orchestration"
+  ],
+  "dependencies": {
+    "yaml": "2.9.1"
+  },
+  "private": true
+}

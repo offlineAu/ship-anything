@@ -1,0 +1,62 @@
+# SHIP ANYTHING configuration. No secrets here — reference secrets by env var NAME only.
+# Read by agents (orchestrator) and by the ship-anything CLI.
+version: 1
+
+project:
+  name: null                 # optional; defaults to the directory name
+  installed_agents: [generic]   # written by `ship-anything init`
+
+agents:
+  enabled: all               # or a list, e.g. [orchestrator, product-director, frontend-agent, qa-agent]
+  disabled: []               # e.g. [blender-agent] when Blender is unavailable
+
+skills:
+  enabled: all               # internal skills; external skills are controlled in registry.yaml
+  disabled: []
+
+execution:
+  autonomy: high             # high: act on reasonable assumptions, ask only when blocked or for authorization
+                             # medium: confirm the plan for L3/L4 before building
+                             # low: confirm every wave
+  default_level: auto        # auto | L1 | L2 | L3 | L4
+  record_assumptions: true   # write assumptions to .ship-anything/state/decisions.md
+  max_retries_per_task: 2    # identical retries are never allowed; each retry needs new information
+
+parallelism:
+  max_agents: 4              # concurrent delegated tasks; adapters without subagents run 1
+  require_disjoint_ownership: true
+
+quality_gates:
+  qa_independent: true       # implementer may not mark its own task VERIFIED
+  security_review: on-risk   # always | on-risk (auth, payments, PII, uploads, infra) | never
+  performance_review: on-targets   # always | on-targets | never
+  accessibility_target: WCAG-2.2-AA
+  web_vitals:                # p75 field/lab targets used when a web UI is in scope
+    lcp_ms: 2500
+    inp_ms: 200
+    cls: 0.1
+
+token_optimization:
+  progressive_disclosure: true   # load skills/agents only when selected
+  compact_handoffs: true         # contracts + reports, never full transcripts
+  repo_map: auto                 # auto: build .ship-anything/state/repo-map.md for repos > 200 files
+  terminal_output: concise       # concise | full — concise never hides errors
+  measure: true                  # record host-reported usage per task when the host exposes it
+
+permissions:                     # mirrors .ship-anything/policies/authorization.md; cannot be loosened by skills
+  production_deploy: ask
+  publish_packages: ask
+  git_push: ask
+  paid_resources: ask
+  dns_changes: ask
+  destructive_operations: ask
+  install_external_skills: ask
+
+tools:
+  package_manager: auto          # auto-detect from lockfile: npm | pnpm | yarn | bun | uv | poetry | cargo …
+  browser_automation: playwright # playwright | puppeteer | host-native | none
+  repo_packer: repomix           # repomix | none (used by codebase-intelligence for large repos)
+
+workflows:
+  default: build-anything
+  preferences: {}                # e.g. { web-app: { framework: nextjs } }

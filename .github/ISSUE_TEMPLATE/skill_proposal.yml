@@ -1,0 +1,18 @@
+name: Skill or workflow proposal
+description: Propose a new internal skill/workflow or an upstream skill to register
+labels: [content]
+body:
+  - type: input
+    id: name
+    attributes: { label: Proposed name (kebab-case) }
+    validations: { required: true }
+  - type: textarea
+    id: problem
+    attributes: { label: What agents fail at today without it }
+    validations: { required: true }
+  - type: textarea
+    id: upstream
+    attributes: { label: Existing upstream skills considered, description: "Repo, license, why not adopt/register instead" }
+  - type: textarea
+    id: evidence
+    attributes: { label: Evidence, description: Real runs or examples showing the need }

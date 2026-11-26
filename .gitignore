@@ -1,0 +1,15 @@
+node_modules/
+packages/cli/content/
+*.tgz
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# SHIP ANYTHING local state when the system is used inside this repo
+.ship-anything/cache/*
+.ship-anything/logs/*
+.ship-anything/backups/
+.ship-anything/quarantine/
+.ship-anything/state/sessions/
+!.ship-anything/**/.gitkeep

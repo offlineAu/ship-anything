@@ -1,0 +1,33 @@
+# SHIP ANYTHING task contract — orchestrator → specialist.
+# Keep it compact: link to artifacts instead of pasting them.
+id: T-000                      # unique, stable; referenced by deps and reports
+objective: >-
+  One or two sentences describing the outcome, not the steps.
+agent: frontend-agent          # must exist in agents/
+skills:                        # registry names; only what this task needs
+  - frontend-development
+inputs:                        # paths/URLs the agent must read first
+  - docs/product-brief.md
+  - docs/architecture.md#api-contract
+outputs:                       # artifacts the agent must produce
+  - src/app/orders/**
+  - .ship-anything/state/tasks/T-000.md
+owns:                          # globs this task may modify; no overlap with concurrent tasks
+  - src/app/orders/**
+reads_only:                    # globs the agent may read but must not modify
+  - src/lib/api/**
+depends_on: []                 # task ids that must be VERIFIED (or IMPLEMENTED if stated) first
+acceptance_criteria:           # measurable, testable statements
+  - Orders list renders 3 states (loading, empty, error) with a11y labels
+  - `npm test -- orders` passes
+validation:                    # how completion will be checked, by whom
+  commands:
+    - npm run lint
+    - npm test -- orders
+  reviewer: qa-agent
+constraints:
+  - Do not change the database schema
+  - No new runtime dependencies without recording an ADR
+budget:
+  max_iterations: 3            # retries before escalation
+status: PLANNED

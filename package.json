@@ -1,0 +1,19 @@
+{
+  "name": "ship-anything-monorepo",
+  "private": true,
+  "description": "SHIP ANYTHING — portable agents, skills and workflows for AI coding agents, plus the ship-anything CLI.",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "validate": "node scripts/validate/validate.mjs",
+    "validate:report": "node scripts/validate/validate.mjs --report reports/bootstrap-validation.data.json",
+    "test": "npm test --workspace packages/cli",
+    "check": "npm run validate && npm test"
+  }
+}

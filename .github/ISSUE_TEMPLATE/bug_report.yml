@@ -1,0 +1,22 @@
+name: Bug report
+description: Something in the CLI, an adapter, or agent/skill instructions behaves incorrectly
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes: { label: What happened, description: Expected vs actual behaviour }
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes: { label: Reproduction, description: Exact commands and the coding agent + version used, render: shell }
+    validations: { required: true }
+  - type: textarea
+    id: doctor
+    attributes: { label: "`ship-anything doctor --json` output", render: json }
+  - type: checkboxes
+    id: secrets
+    attributes:
+      label: Safety
+      options:
+        - label: I removed secrets, tokens and private paths from everything above
+          required: true

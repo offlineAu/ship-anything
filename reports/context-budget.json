@@ -1,0 +1,29 @@
+{
+  "method": "static instruction volume; tokens estimated as bytes/4",
+  "counts": {
+    "agents": 22,
+    "skills": 57,
+    "workflows": 15
+  },
+  "baseline": {
+    "bytes": 640145,
+    "est_tokens": 160036
+  },
+  "startup": {
+    "bytes": 27142,
+    "est_tokens": 6786,
+    "pct_of_baseline": 4.2
+  },
+  "per_task": {
+    "agent": "frontend-agent",
+    "workflow": "web-app",
+    "required_skills": [
+      "accessibility-engineering",
+      "frontend-development",
+      "responsive-design"
+    ],
+    "bytes": 70571,
+    "est_tokens": 17643,
+    "pct_of_baseline": 11
+  }
+}

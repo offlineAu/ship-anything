@@ -1,0 +1,1710 @@
+# SHIP ANYTHING skill registry.
+# - skills.internal is GENERATED from skills/*/SKILL.md and workflows/*.md by
+#   `node scripts/generate/registry.mjs` — do not hand-edit that section.
+# - skills.external is curated by hand. Evidence: docs/research/skill-candidates.md (verified 2026-11-25).
+#   External skills are untrusted until reviewed: .ship-anything/policies/external-skills.md.
+#   enabled: true requires security.status approved|approved-instructions-only AND a pin.
+version: 1
+schema:
+  classification: [ ADOPT, ADAPT, REFERENCE, OPTIONAL, REJECT ]
+  security_status: [ approved, approved-instructions-only, needs-review, rejected ]
+disabled: []
+skills:
+  internal:
+    3d-product-production:
+      category: creative-production
+      version: 0.1.0
+      agents:
+        - threejs-agent
+        - blender-agent
+      workflows:
+        - 3d-product
+      path: skills/3d-product-production/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    accessibility-engineering:
+      category: design
+      version: 0.1.0
+      agents:
+        - ux-agent
+        - frontend-agent
+        - mobile-agent
+        - motion-agent
+        - qa-agent
+      workflows:
+        - mobile-app
+        - website
+      path: skills/accessibility-engineering/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    api-development:
+      category: software-engineering
+      version: 0.1.0
+      agents:
+        - architecture-agent
+        - backend-agent
+        - integration-agent
+      workflows:
+        - fullstack-platform
+        - web-app
+      path: skills/api-development/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    api-testing:
+      category: quality
+      version: 0.1.0
+      agents:
+        - integration-agent
+        - qa-agent
+      workflows: []
+      path: skills/api-testing/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    architecture-planning:
+      category: product-intelligence
+      version: 0.1.0
+      agents:
+        - architecture-agent
+      workflows:
+        - fullstack-platform
+        - legacy-modernization
+        - web-app
+      path: skills/architecture-planning/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    asset-pipeline:
+      category: creative-production
+      version: 0.1.0
+      agents:
+        - threejs-agent
+        - blender-agent
+        - video-agent
+      workflows:
+        - 3d-product
+        - video-production
+      path: skills/asset-pipeline/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    authentication-and-authorization:
+      category: software-engineering
+      version: 0.1.0
+      agents:
+        - backend-agent
+        - integration-agent
+        - security-agent
+      workflows:
+        - fullstack-platform
+        - security-remediation
+      path: skills/authentication-and-authorization/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    backend-development:
+      category: software-engineering
+      version: 0.1.0
+      agents:
+        - backend-agent
+      workflows:
+        - web-app
+      path: skills/backend-development/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    blender-production:
+      category: creative-production
+      version: 0.1.0
+      agents:
+        - blender-agent
+      workflows: []
+      path: skills/blender-production/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    browser-automation:
+      category: quality
+      version: 0.1.0
+      agents:
+        - frontend-agent
+        - performance-agent
+        - qa-agent
+      workflows: []
+      path: skills/browser-automation/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    ci-cd:
+      category: delivery
+      version: 0.1.0
+      agents:
+        - infrastructure-agent
+        - release-agent
+      workflows:
+        - production-release
+      path: skills/ci-cd/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    code-review:
+      category: quality
+      version: 0.1.0
+      agents:
+        - orchestrator
+        - security-agent
+      workflows:
+        - security-remediation
+      path: skills/code-review/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    codebase-intelligence:
+      category: efficiency
+      version: 0.1.0
+      agents:
+        - orchestrator
+        - research-agent
+      workflows:
+        - improve-existing-project
+        - reverse-engineer
+      path: skills/codebase-intelligence/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    competitive-product-analysis:
+      category: product-intelligence
+      version: 0.1.0
+      agents:
+        - product-director
+        - research-agent
+      workflows:
+        - clone-existing-product
+      path: skills/competitive-product-analysis/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    context-management:
+      category: efficiency
+      version: 0.1.0
+      agents:
+        - orchestrator
+      workflows:
+        - build-anything
+      path: skills/context-management/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    creative-direction:
+      category: creative-production
+      version: 0.1.0
+      agents:
+        - ux-agent
+        - blender-agent
+        - video-agent
+      workflows:
+        - video-production
+      path: skills/creative-direction/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    cross-platform-development:
+      category: software-engineering
+      version: 0.1.0
+      agents:
+        - architecture-agent
+        - mobile-agent
+        - desktop-agent
+      workflows:
+        - desktop-app
+        - mobile-app
+      path: skills/cross-platform-development/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    database-engineering:
+      category: software-engineering
+      version: 0.1.0
+      agents:
+        - architecture-agent
+        - backend-agent
+        - database-agent
+      workflows:
+        - fullstack-platform
+      path: skills/database-engineering/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    deployment:
+      category: delivery
+      version: 0.1.0
+      agents:
+        - infrastructure-agent
+        - release-agent
+      workflows:
+        - production-release
+      path: skills/deployment/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    design-system-engineering:
+      category: design
+      version: 0.1.0
+      agents:
+        - ux-agent
+      workflows: []
+      path: skills/design-system-engineering/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    desktop-development:
+      category: software-engineering
+      version: 0.1.0
+      agents:
+        - desktop-agent
+      workflows:
+        - desktop-app
+      path: skills/desktop-development/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    documentation:
+      category: delivery
+      version: 0.1.0
+      agents:
+        - documentation-agent
+      workflows:
+        - reverse-engineer
+      path: skills/documentation/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    environment-management:
+      category: delivery
+      version: 0.1.0
+      agents:
+        - infrastructure-agent
+      workflows:
+        - production-release
+      path: skills/environment-management/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    existing-project-audit:
+      category: product-intelligence
+      version: 0.1.0
+      agents:
+        - orchestrator
+        - architecture-agent
+      workflows:
+        - improve-existing-project
+        - legacy-modernization
+      path: skills/existing-project-audit/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    frontend-development:
+      category: software-engineering
+      version: 0.1.0
+      agents:
+        - frontend-agent
+      workflows:
+        - web-app
+        - website
+      path: skills/frontend-development/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    frontend-polish:
+      category: design
+      version: 0.1.0
+      agents:
+        - frontend-agent
+      workflows: []
+      path: skills/frontend-polish/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    fullstack-development:
+      category: software-engineering
+      version: 0.1.0
+      agents:
+        - frontend-agent
+        - backend-agent
+      workflows:
+        - fullstack-platform
+      path: skills/fullstack-development/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    infrastructure-engineering:
+      category: delivery
+      version: 0.1.0
+      agents:
+        - infrastructure-agent
+      workflows: []
+      path: skills/infrastructure-engineering/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    integration-engineering:
+      category: software-engineering
+      version: 0.1.0
+      agents:
+        - integration-agent
+      workflows: []
+      path: skills/integration-engineering/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    interaction-design:
+      category: design
+      version: 0.1.0
+      agents:
+        - ux-agent
+        - frontend-agent
+        - motion-agent
+      workflows: []
+      path: skills/interaction-design/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    mobile-development:
+      category: software-engineering
+      version: 0.1.0
+      agents:
+        - mobile-agent
+      workflows:
+        - mobile-app
+      path: skills/mobile-development/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    motion-design:
+      category: design
+      version: 0.1.0
+      agents:
+        - motion-agent
+        - threejs-agent
+      workflows: []
+      path: skills/motion-design/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    observability:
+      category: delivery
+      version: 0.1.0
+      agents:
+        - monitoring-agent
+      workflows: []
+      path: skills/observability/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    parallel-agent-coordination:
+      category: efficiency
+      version: 0.1.0
+      agents:
+        - orchestrator
+      workflows:
+        - build-anything
+      path: skills/parallel-agent-coordination/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    performance-optimization:
+      category: quality
+      version: 0.1.0
+      agents:
+        - database-agent
+        - threejs-agent
+        - monitoring-agent
+        - performance-agent
+      workflows: []
+      path: skills/performance-optimization/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    persistent-project-memory:
+      category: efficiency
+      version: 0.1.0
+      agents:
+        - orchestrator
+      workflows: []
+      path: skills/persistent-project-memory/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    product-discovery:
+      category: product-intelligence
+      version: 0.1.0
+      agents:
+        - product-director
+      workflows:
+        - product-discovery
+      path: skills/product-discovery/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    product-research:
+      category: product-intelligence
+      version: 0.1.0
+      agents:
+        - product-director
+        - research-agent
+      workflows:
+        - clone-existing-product
+      path: skills/product-research/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    production-readiness:
+      category: quality
+      version: 0.1.0
+      agents:
+        - orchestrator
+        - monitoring-agent
+        - release-agent
+      workflows:
+        - production-release
+      path: skills/production-readiness/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    regression-prevention:
+      category: quality
+      version: 0.1.0
+      agents:
+        - database-agent
+        - qa-agent
+      workflows:
+        - improve-existing-project
+        - legacy-modernization
+        - security-remediation
+      path: skills/regression-prevention/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    release-management:
+      category: delivery
+      version: 0.1.0
+      agents:
+        - release-agent
+      workflows:
+        - production-release
+      path: skills/release-management/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    remotion-production:
+      category: creative-production
+      version: 0.1.0
+      agents:
+        - video-agent
+      workflows:
+        - video-production
+      path: skills/remotion-production/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    repository-mapping:
+      category: efficiency
+      version: 0.1.0
+      agents:
+        - orchestrator
+        - documentation-agent
+      workflows:
+        - improve-existing-project
+        - reverse-engineer
+      path: skills/repository-mapping/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    requirements-analysis:
+      category: product-intelligence
+      version: 0.1.0
+      agents:
+        - orchestrator
+        - product-director
+      workflows:
+        - build-anything
+        - clone-existing-product
+        - product-discovery
+      path: skills/requirements-analysis/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    responsive-design:
+      category: design
+      version: 0.1.0
+      agents:
+        - ux-agent
+        - frontend-agent
+        - mobile-agent
+      workflows:
+        - website
+      path: skills/responsive-design/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    reverse-engineering:
+      category: product-intelligence
+      version: 0.1.0
+      agents:
+        - research-agent
+        - security-agent
+      workflows:
+        - reverse-engineer
+      path: skills/reverse-engineering/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    rust-modernization:
+      category: product-intelligence
+      version: 0.1.0
+      agents:
+        - architecture-agent
+        - backend-agent
+        - desktop-agent
+        - performance-agent
+      workflows: []
+      path: skills/rust-modernization/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    security-audit:
+      category: quality
+      version: 0.1.0
+      agents:
+        - security-agent
+      workflows:
+        - fullstack-platform
+        - security-remediation
+      path: skills/security-audit/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: true
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    sound-design:
+      category: creative-production
+      version: 0.1.0
+      agents:
+        - video-agent
+      workflows: []
+      path: skills/sound-design/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    terminal-output-optimization:
+      category: efficiency
+      version: 0.1.0
+      agents:
+        - orchestrator
+      workflows: []
+      path: skills/terminal-output-optimization/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    testing-and-qa:
+      category: quality
+      version: 0.1.0
+      agents:
+        - qa-agent
+      workflows:
+        - desktop-app
+        - fullstack-platform
+        - improve-existing-project
+        - legacy-modernization
+        - mobile-app
+        - web-app
+        - website
+      path: skills/testing-and-qa/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    threejs-production:
+      category: creative-production
+      version: 0.1.0
+      agents:
+        - threejs-agent
+      workflows:
+        - 3d-product
+      path: skills/threejs-production/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    token-optimization:
+      category: efficiency
+      version: 0.1.0
+      agents:
+        - orchestrator
+      workflows: []
+      path: skills/token-optimization/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    ui-ux-design:
+      category: design
+      version: 0.1.0
+      agents:
+        - ux-agent
+      workflows:
+        - clone-existing-product
+      path: skills/ui-ux-design/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    video-editing:
+      category: creative-production
+      version: 0.1.0
+      agents:
+        - video-agent
+      workflows:
+        - video-production
+      path: skills/video-editing/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    visual-effects:
+      category: creative-production
+      version: 0.1.0
+      agents:
+        - motion-agent
+        - video-agent
+      workflows: []
+      path: skills/visual-effects/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    visual-regression:
+      category: design
+      version: 0.1.0
+      agents:
+        - ux-agent
+        - qa-agent
+      workflows: []
+      path: skills/visual-regression/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+  external:
+    anthropic-frontend-design:
+      source: anthropics/skills
+      path: skills/frontend-design
+      license: Apache-2.0
+      classification: ADOPT
+      category: design
+      agents: [ ux-agent, frontend-agent ]
+      role: lead skill for aesthetic direction on UI tasks (default lead)
+      install: "npx skills add anthropics/skills --skill frontend-design"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Markdown only, no scripts (per research). Pin to a commit after 2c5958e (2026-11-06) when per-skill Apache-2.0 licensing applies." }
+    anthropic-webapp-testing:
+      source: anthropics/skills
+      path: skills/webapp-testing
+      license: Apache-2.0
+      classification: OPTIONAL
+      category: quality
+      agents: [ qa-agent ]
+      install: "npx skills add anthropics/skills --skill webapp-testing"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Bundles Python helper scripts for Playwright; review before enabling." }
+    anthropic-skill-creator:
+      source: anthropics/skills
+      path: skills/skill-creator
+      license: Apache-2.0
+      classification: ADOPT
+      category: efficiency
+      agents: [ documentation-agent ]
+      role: maintainer tooling for authoring and evaluating skills (contributors, not end users)
+      install: "npx skills add anthropics/skills --skill skill-creator"
+      compatibility: [ claude ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Contains eval scripts; maintainer use only." }
+    impeccable:
+      source: pbakaus/impeccable
+      license: Apache-2.0
+      classification: ADOPT
+      category: design
+      agents: [ ux-agent, frontend-agent, qa-agent ]
+      role: design critique / audit / polish reviewer (supporting skill)
+      install: "npx impeccable install"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security:
+        status: needs-review
+        notes: >-
+          Installer offers SessionStart/PostToolUse/Stop hooks that run outside model approval — keep OFF unless the user opts in. Live mode can launch codex/claude with approvals and sandbox bypassed; set IMPECCABLE_LIVE_COPY_AGENT=off. Downloads a native binary (sha256-checked). Fetches design directions from impeccable.style; DO_NOT_TRACK=1 disables telemetry only.
+    emil-kowalski-skills:
+      source: emilkowalski/skills
+      license: MIT
+      classification: ADOPT
+      category: design
+      agents: [ motion-agent, ux-agent, frontend-agent ]
+      role: motion and interaction authority; recommended subset only
+      subset: [ emil-design-eng, animate, review-animations, improve-animations, animation-performance, mobile-native, break-ui, learn-taste ]
+      install: "npx skills add emilkowalski/skills"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Markdown only, no scripts or hooks (per research)." }
+    ui-ux-pro-max:
+      source: nextlevelbuilder/ui-ux-pro-max-skill
+      license: MIT
+      classification: OPTIONAL
+      category: design
+      agents: [ ux-agent ]
+      role: searchable design data (styles, palettes, font pairings); core skill only
+      install: "/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill  (Claude Code) — or its uipro CLI"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security:
+        status: needs-review
+        notes: >-
+          Core search script is stdlib Python with no network. Sub-skills 'design' call third-party image APIs with env keys; 'ui-styling' runs the shadcn CLI. Do not copy its demo .claude/settings.json (enables all project MCP servers and broad home-directory reads). Sub-skill provenance unverified.
+    taste-skill:
+      source: Leonxlnx/taste-skill
+      license: MIT
+      classification: OPTIONAL
+      category: design
+      agents: [ ux-agent, frontend-agent ]
+      role: alternative LEAD skill for marketing/landing sites (replaces anthropic-frontend-design, never alongside)
+      install: "npx skills add https://github.com/Leonxlnx/taste-skill --skill design-taste-frontend"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active (frequent breaking changes)
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Declares a Stop hook running gate.mjs with headless Chrome (600 s timeout). Requires Node 22+. Bundled photos carry their own licenses." }
+    repomix:
+      source: yamadashy/repomix
+      license: MIT
+      classification: ADOPT
+      category: efficiency
+      agents: [ orchestrator, research-agent, documentation-agent ]
+      role: pack repositories into one AI-friendly file; Secretlint secret filtering
+      install: "npx repomix@<pinned-version>   |   npx skills add yamadashy/repomix --skill repomix-explorer"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "No hooks. Pin an exact version in automation instead of @latest." }
+    understand-anything:
+      source: Egonex-AI/Understand-Anything
+      license: MIT
+      classification: OPTIONAL
+      category: efficiency
+      agents: [ orchestrator, research-agent ]
+      role: interactive codebase knowledge graph for large existing repos
+      install: "/plugin marketplace add Egonex-AI/Understand-Anything  (Claude Code)"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Installs PostToolUse/SessionStart hooks and a git post-commit hook; curl|sh installer; large first-run token cost." }
+    rtk:
+      source: rtk-ai/rtk
+      license: Apache-2.0 AND BUSL-1.1
+      classification: OPTIONAL
+      category: efficiency
+      agents: [ orchestrator ]
+      role: shell-output compression; user-installed only, never bundled
+      install: "brew install rtk && rtk init -g   (user decision; rewrites agent shell commands via hooks)"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "BUSL-1.1 engine/ and proxy/ are not redistributable. Hooks rewrite every shell command. Prefer the Apache-only rtk-oss edition. Telemetry opt-in." }
+    context-mode:
+      source: mksglu/context-mode
+      license: Elastic-2.0
+      classification: REFERENCE
+      category: efficiency
+      agents: []
+      role: design reference only (keep raw tool output out of context; return only printed results)
+      install: null
+      compatibility: []
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: rejected, notes: "Not OSI open source (ELv2) — not vendored or recommended as a default. ctx_execute runs agent-written code with host access." }
+    claude-mem:
+      source: thedotmack/claude-mem
+      license: Apache-2.0
+      classification: OPTIONAL
+      category: efficiency
+      agents: [ orchestrator ]
+      role: "cross-session memory via hooks (pattern reference: index → timeline → details retrieval)"
+      install: "npx claude-mem install"
+      compatibility: [ claude, codex, opencode, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Hooks capture every tool call and send it to an LLM for compression. Telemetry on by default (npx claude-mem telemetry disable). Auto-installs Bun and uv. Open-core with paid tiers." }
+    headroom:
+      source: headroomlabs-ai/headroom
+      license: Apache-2.0
+      classification: OPTIONAL
+      category: efficiency
+      agents: []
+      role: compression proxy between agent and model API (advanced users)
+      install: "uv tool install --python 3.13 \"headroom-ai[all]\""
+      compatibility: [ claude, codex ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Sits in provider API traffic (sees credentials); modifies prompts; telemetry on by default (HEADROOM_TELEMETRY=off). Heavy Python stack." }
+    rea:
+      source: morluto/rea
+      license: MIT
+      classification: OPTIONAL
+      category: product-intelligence
+      agents: [ research-agent, security-agent ]
+      role: reverse-engineering MCP server/CLI (app behaviour to native binaries) for authorised analysis
+      install: "npx rea-agents setup"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Can execute targets and capture network traffic. Authorised targets only. Reported star count looked anomalous; verify maintainership before enabling." }
+    reverse-engineer-anything:
+      source: Speedrunlab/reverse-engineer-anything
+      license: MIT
+      classification: REFERENCE
+      category: product-intelligence
+      agents: [ research-agent ]
+      role: structural reference for evidence-tied, authorised reverse-engineering skill
+      install: null
+      compatibility: []
+      maintenance: low (last push 2026-10-27)
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Single SKILL.md + references/templates, no hooks, no network." }
+    rust-anything:
+      source: erkamyaman/rust-anything
+      license: MIT
+      classification: REFERENCE
+      category: product-intelligence
+      agents: [ architecture-agent, performance-agent ]
+      role: reference for behaviour-recorded incremental Rust migration (rust-modernization skill)
+      install: "cargo install rust-anything   (user decision)"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "record/diff run the user's program repeatedly — side effects repeat." }
+    remotion-skills:
+      source: remotion-dev/skills
+      license: Remotion-License
+      classification: OPTIONAL
+      category: creative-production
+      agents: [ video-agent ]
+      role: vendor guidance for Remotion; opt-in only
+      install: "npx skills add remotion-dev/skills"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Source-available Remotion License: companies above 3 people need a paid Remotion company license. Never vendor its text; surface the license to the user." }
+    motion-tools-and-skills:
+      source: VisualxIntelligence/motion-tools-and-skills
+      license: MIT AND Apache-2.0
+      classification: ADAPT
+      category: creative-production
+      agents: [ video-agent, motion-agent, threejs-agent, blender-agent ]
+      role: pick individual skills (launch films, Three.js+GSAP, captions, sound, QA gates) with attribution
+      install: "npx skills add VisualxIntelligence/motion-tools-and-skills --skill <name>"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active (fast churn)
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Per-folder licenses; some skills call paid APIs or require Blender/ComfyUI." }
+    dolly:
+      source: pvhuwung/dolly
+      license: MIT
+      classification: REFERENCE
+      category: creative-production
+      agents: [ video-agent ]
+      role: reference for render QA (contact sheets, format-safe layouts)
+      install: null
+      compatibility: []
+      maintenance: low (2 days of commits, 2026-10)
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "npm postinstall script; macOS-centric." }
+    pragmatic-orchestration:
+      source: CodeAlive-AI/pragmatic-orchestration
+      license: MIT
+      classification: REFERENCE
+      category: efficiency
+      agents: [ orchestrator ]
+      role: reference for task contracts, deviation journals, parent-verifies delegation
+      install: "npx skills add CodeAlive-AI/pragmatic-orchestration@pragmatic-orchestration"
+      compatibility: [ claude, codex, opencode, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "porch delegate gives workers full access and reads other agents' session histories." }
+    metaswarm:
+      source: dsifry/metaswarm
+      license: MIT
+      classification: REFERENCE
+      category: efficiency
+      agents: [ orchestrator, qa-agent ]
+      role: reference for review gates and rubrics (competing framework)
+      install: null
+      compatibility: []
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Requires BEADS bd CLI via curl|bash; session-start hooks; non-standard frontmatter keys." }
+    mco:
+      source: mco-org/mco
+      license: MIT
+      classification: OPTIONAL
+      category: quality
+      agents: [ qa-agent, security-agent ]
+      role: run several coding agents in parallel for independent review and answer comparison
+      install: "npx @tt-a1i/mco@<pinned> install --agent codex --agent claude-code"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Has a 'yolo' mode — use read_only for reviews. Python 3.10+." }
+    vercel-skills-cli:
+      source: vercel-labs/skills
+      license: MIT
+      classification: ADOPT
+      category: delivery
+      agents: []
+      role: standard installer for public Agent Skills; SHIP ANYTHING uses the same project directories (.agents/skills, .claude/skills)
+      install: "npx skills@<pinned> add <source>"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active
+      pin: null
+      enabled: false
+      security: { status: needs-review, notes: "Sends telemetry to skills.sh unless DISABLE_TELEMETRY=1 or DO_NOT_TRACK=1. Requires Node >= 22.20." }
+    frontend-stack-jaimejunr:
+      source: JaimeJunr/claude-code-frontend-skills
+      license: MIT AND upstream licenses
+      classification: REFERENCE
+      category: design
+      agents: []
+      role: reference for design-skill conflict rulings and routing; do not install (vendored copies lag upstream)
+      install: null
+      compatibility: [ claude ]
+      maintenance: single maintainer, weekly auto-sync
+      pin: null
+      enabled: false
+      security: { status: rejected, notes: "Aggregates upstream hooks and an auto-sync job; prefer installing upstreams directly." }
+    claude-code-ui-ux-skill-nicohodt:
+      source: nicohodt/claude-code-ui-ux-skill
+      license: MIT
+      classification: REJECT
+      category: design
+      agents: []
+      role: none
+      install: null
+      compatibility: []
+      maintenance: inactive (2 commits, last 2026-09-01)
+      pin: null
+      enabled: false
+      security: { status: rejected, notes: "Rebranded copy of ui-ux-pro-max without attribution (684/708 paths identical); misleading install path. Use upstream instead." }

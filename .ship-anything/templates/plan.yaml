@@ -1,0 +1,16 @@
+# .ship-anything/state/plan.yaml — task ownership registry for one request.
+request: "<user request, verbatim or summarised>"
+level: L3                      # L1|L2|L3|L4 — see parallel-agent-coordination skill
+workflows: [web-app]
+assumptions:
+  - "<assumption> — <rationale>"
+waves:                         # tasks in the same wave may run in parallel
+  - [T-001]
+  - [T-002, T-003]
+tasks:
+  - id: T-001
+    agent: architecture-agent
+    objective: "Define stack, module boundaries and API contract"
+    owns: [docs/architecture.md, docs/api/**]
+    depends_on: []
+    status: PLANNED
