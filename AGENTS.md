@@ -22,7 +22,7 @@ To *use* SHIP ANYTHING in another project, run `npx ship-anything init` there (s
 5. Upstream integrations need evidence in `docs/research/` and a registry entry with license + security notes.
    Never vendor third-party skill text without a compatible license and attribution.
 6. Never publish to npm, push to remotes, or create releases without explicit maintainer authorization.
-   `packages/cli/package.json` keeps `"private": true` until a maintainer flips it for a release.
+   Releases follow `docs/guides/releasing.md`.
 7. No fabricated benchmarks, stars, compatibility claims or test results in docs.
 
 ## Using the system inside this repo

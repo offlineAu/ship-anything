@@ -2,7 +2,7 @@
 
 - **Date:** 2026-11-26
 - **Scope:** phases 1–10 of the SHIP ANYTHING bootstrap
-- **Repository state:** all work uncommitted on `main`. Nothing pushed and nothing published.
+- **Repository state:** committed on branch `bootstrap/foundation`; release 0.1.0 prepared, not yet pushed or published.
 - **Overall status:** foundation `TESTED`. The CLI and adapters are partially `VERIFIED` (see the compatibility table).
   Nothing here is `SHIPPED`: no release has been made and no end-to-end product run has been recorded.
 
@@ -115,7 +115,7 @@ No third-party skill text was copied into this repository.
 7. CI matrix (Windows, macOS, Linux × Node 20/22/24) is defined but hasn't run yet, since nothing is pushed. Local runs used
    macOS with Node 24 only.
 8. Node's default test discovery also loads `test/helpers.js` as a trivially passing test file. This is harmless.
-9. The CLI package keeps `"private": true` to prevent accidental publishing. A maintainer flips it at release time.
+9. Publishing is manual (`docs/guides/releasing.md`); there is no CI release job or npm provenance yet.
 
 ## Remaining work
 

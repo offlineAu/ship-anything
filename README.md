@@ -8,7 +8,7 @@
 
 One request → the right specialists → the right skills → a verified product.
 
-`status: pre-release 0.1.0 · not yet published to npm · MIT`
+`v0.1.0 · MIT` · `npx ship-anything init`
 
 </div>
 
@@ -45,19 +45,32 @@ a good delivery lead brings:
 
 ## Install
 
-> Not yet published to npm. From a local checkout:
-
-```bash
-git clone <this repo> ship-anything && cd ship-anything && npm install
-cd /path/to/your/project
-node /path/to/ship-anything/packages/cli/bin/ship-anything.js init --agent claude
-```
-
-Planned once published:
+Requires Node.js 20 or newer. Run it inside the project you want to equip:
 
 ```bash
 npx ship-anything init                 # auto-detects installed agents
 npx ship-anything init --agent codex   # claude | codex | opencode | cursor | gemini | generic | all
+```
+
+Or install the CLI globally with `npm install -g ship-anything` and run `ship-anything init`.
+
+### Run the orchestrator
+
+Open your agent in the project. The installed `AGENTS.md` (or `CLAUDE.md` / `GEMINI.md`) tells it to act as
+the orchestrator, so you just describe what you want.
+
+| Agent | Start |
+|---|---|
+| Claude Code | `claude` (or `claude --agent orchestrator`) |
+| Codex | `codex`, and trust the project so `.codex/agents/` loads |
+| OpenCode | `opencode`, then press Tab to select **orchestrator** |
+| Cursor / Gemini CLI / other | open the project as usual |
+
+From source (contributors):
+
+```bash
+git clone https://github.com/offlineAu/ship-anything.git && cd ship-anything && npm install
+node packages/cli/bin/ship-anything.js init --agent claude --cwd /path/to/your/project
 ```
 
 `init` shows a plan before it writes anything. It's idempotent and never overwrites files you've changed;
@@ -178,9 +191,9 @@ None yet. Demos will be recorded from real runs and added under [assets/demos/](
 
 ## Roadmap
 
-- **0.1** (this foundation): agents, skills, workflows, policies, adapters, local CLI with tests and CI.
+- **0.1** (this release): agents, skills, workflows, policies, adapters, and the npm CLI with tests and CI.
 - **0.2**: verify the Cursor and Gemini CLI adapters on real installs; confirm Codex project-trust behaviour;
-  publish to npm; record the first end-to-end demos.
+  record the first end-to-end demos.
 - **0.3**: measured token benchmarks on real tasks; `skills update` with diff review; an optional NEXUS export
   ([spec](docs/integrations/nexus-integration.md)).
 - Later: example applications built end-to-end, community skill index, more adapters.
@@ -188,7 +201,7 @@ None yet. Demos will be recorded from real runs and added under [assets/demos/](
 ## Contributing
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/community/contribution-roadmap.md](docs/community/contribution-roadmap.md).
-Run `npm run check` before opening a PR.
+Run `npm run check` before opening a PR. Maintainers: see [docs/guides/releasing.md](docs/guides/releasing.md).
 
 ## Security
 

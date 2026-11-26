@@ -3,6 +3,16 @@
   "version": "0.1.0",
   "description": "Install SHIP ANYTHING agents, skills and workflows into any project for Claude Code, Codex, OpenCode, Cursor, Gemini CLI or any Agent Skills-compatible agent.",
   "license": "MIT",
+  "author": "SHIP ANYTHING contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/offlineAu/ship-anything.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/offlineAu/ship-anything#readme",
+  "bugs": {
+    "url": "https://github.com/offlineAu/ship-anything/issues"
+  },
   "type": "module",
   "bin": {
     "ship-anything": "bin/ship-anything.js"
@@ -35,5 +45,7 @@
   "dependencies": {
     "yaml": "2.9.1"
   },
-  "private": true
+  "publishConfig": {
+    "access": "public"
+  }
 }

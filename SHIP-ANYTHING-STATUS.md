@@ -5,7 +5,7 @@
 
 ## Current phase
 
-Bootstrap phases 1–10 complete (2026-11-26). Next: **Phase 11 — field validation** (see `reports/bootstrap-validation.md`).
+Bootstrap phases 1–10 complete (2026-11-26). 0.1.0 prepared for npm (tarball install verified locally); publish and push pending maintainer go-ahead. Next: **Phase 11 — field validation**.
 
 ## Phase tracker
 
@@ -18,7 +18,7 @@ Bootstrap phases 1–10 complete (2026-11-26). Next: **Phase 11 — field valida
 | 5 | Efficiency engineering | TESTED | context/token skills, state templates, `scripts/benchmark/context-budget.mjs` (static only) |
 | 6 | Quality and security | TESTED | policies, security-model, SECURITY.md; secret scan 0 hits |
 | 7 | Universal adapters | PARTIAL | Claude Code ✔ and OpenCode ✔ loaded agents; Codex skills ✔, agents ✖ (untrusted project); Cursor and Gemini untested |
-| 8 | npm CLI | TESTED | 20/20 tests; `npm pack --dry-run` OK; not published |
+| 8 | npm CLI | TESTED | 20/20 tests; packed tarball installed via `npm install` + `npx ship-anything init --agent all` in a fresh project (267 files, validate ✔, doctor ✔) |
 | 9 | Documentation / OSS readiness | TESTED | README, governance files, branding, community, guides; 153 internal links resolve |
 | 10 | Validation | DONE | `reports/bootstrap-validation.md` |
 

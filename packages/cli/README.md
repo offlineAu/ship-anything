@@ -3,7 +3,10 @@
 Installs SHIP ANYTHING agents, skills, workflows and policies into a project for Claude Code, Codex,
 OpenCode, Cursor, Gemini CLI, or any agent that reads `AGENTS.md`.
 
-> Pre-release 0.1.0. Not yet published to npm. The package is marked `"private": true` to prevent accidental publishing.
+```bash
+npx ship-anything init            # auto-detects your agents
+npm install -g ship-anything      # or install the CLI globally
+```
 
 ```bash
 ship-anything init --agent claude|codex|opencode|cursor|gemini|generic|all [--dry-run] [--yes] [--force]
@@ -21,4 +24,4 @@ Safety properties (covered by tests in `test/`):
 - External skills are fetched with git hooks disabled, quarantined, statically reviewed, and never executed.
 
 Requires Node.js ≥ 20. One runtime dependency: [`yaml`](https://github.com/eemeli/yaml) (ISC).
-Project documentation: see the repository root README.
+Project documentation: https://github.com/offlineAu/ship-anything
