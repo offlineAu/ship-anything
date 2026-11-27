@@ -2,7 +2,7 @@
 
 - **Date:** 2026-11-26
 - **Scope:** phases 1–10 of the SHIP ANYTHING bootstrap
-- **Repository state:** committed on branch `bootstrap/foundation`; release 0.1.0 prepared, not yet pushed or published.
+- **Repository state:** committed on branch `bootstrap/foundation`; pushed to github.com/offlineAu/ship-anything; `ship-anything@0.1.0` published to npm on 2026-11-27 by the maintainer.
 - **Overall status:** foundation `TESTED`. The CLI and adapters are partially `VERIFIED` (see the compatibility table).
   Nothing here is `SHIPPED`: no release has been made and no end-to-end product run has been recorded.
 
@@ -112,8 +112,8 @@ No third-party skill text was copied into this repository.
    and skips it. New internal skills from a CLI upgrade won't be registered there until the user merges the file.
 6. When Claude and OpenCode (or Cursor) are installed together, the same skills exist in both `.claude/skills` and
    `.agents/skills`. Some agents may list duplicates; de-duplication behaviour is unverified.
-7. CI matrix (Windows, macOS, Linux × Node 20/22/24) is defined but hasn't run yet, since nothing is pushed. Local runs used
-   macOS with Node 24 only.
+7. CI matrix (Windows, macOS, Linux × Node 20/22/24) has not run: GitHub refused to start jobs (account billing lock).
+   Local runs covered macOS with Node 20.20.2, 22.23.5 and 24.21.0 (tests, validator, tarball install). Windows and Linux are unverified.
 8. Node's default test discovery also loads `test/helpers.js` as a trivially passing test file. This is harmless.
 9. Publishing is manual (`docs/guides/releasing.md`); there is no CI release job or npm provenance yet.
 

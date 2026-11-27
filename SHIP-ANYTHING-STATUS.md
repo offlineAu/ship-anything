@@ -5,7 +5,7 @@
 
 ## Current phase
 
-Bootstrap phases 1–10 complete (2026-11-26). 0.1.0 prepared for npm (tarball install verified locally); publish and push pending maintainer go-ahead. Next: **Phase 11 — field validation**.
+Bootstrap phases 1–10 complete (2026-11-26). **0.1.0 published to npm (2026-11-27)** and pushed to github.com/offlineAu/ship-anything. Next: **Phase 11 — field validation**.
 
 ## Phase tracker
 
