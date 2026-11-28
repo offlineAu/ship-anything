@@ -60,7 +60,7 @@
 |---|---|---|---|
 | Claude Code | 2.1.332 | ✔ VERIFIED: all 22 subagents and the installed skills discovered | `claude -p` in the scratch project listed 22 agents plus `security-audit` and `threejs-production` |
 | OpenCode | 1.19.5 | ✔ VERIFIED: 22 agents loaded (orchestrator primary, 21 subagents) | `opencode agent list` |
-| Codex CLI | 0.160.1 | ◐ PARTIAL: skills discovered ✔. Agent TOML parses with exact keys ✔. Custom agents **not listed** ✖ | `codex exec --sandbox read-only`. Python 3.12 `tomllib`. The likely cause is that an untrusted temp project skips `.codex/`; this is unverified |
+| Codex CLI | 0.160.1 | ✔ VERIFIED in a trusted project: skills ✔, 43 `spawn_agent` calls to SHIP ANYTHING agent types ✔. An untrusted project lists no custom agents | [field run](field-run-2026-11-28-codex.md); `codex exec --sandbox read-only` |
 | Cursor | not installed | UNTESTED (docs only) | `.ship-anything/adapters/cursor.md` |
 | Gemini CLI | not installed | UNTESTED (docs only) | `.ship-anything/adapters/gemini-cli.md` |
 
@@ -104,8 +104,8 @@ No third-party skill text was copied into this repository.
 ## Known limitations
 
 1. The Cursor and Gemini CLI adapters are untested. Gemini acceptance of hyphenated agent names is unverified.
-2. Codex custom agents weren't listed in an untrusted project. The project-trust hypothesis is unverified.
-3. No end-to-end product run has been recorded. Workflows and agents are reviewed instructions, not field-tested
+2. Codex custom agents load only in trusted projects (confirmed 2026-11-28).
+3. One end-to-end field run (Codex, L4, still in progress) is recorded in `field-run-2026-11-28-codex.md`; no run has completed. Workflows and agents are reviewed instructions, not field-tested
    procedures. The restaurant example is labelled illustrative.
 4. Token benchmark covers static instruction volume only. Model-usage savings are unmeasured, so none are claimed.
 5. Running `skills add`/`approve` in a project changes `registry.yaml`, and `update` then treats it as user-modified

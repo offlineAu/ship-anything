@@ -177,7 +177,7 @@ model-usage savings figures until they've been measured on real runs.
 |---|---|---|---|---|
 | Claude Code | `CLAUDE.md` → `@AGENTS.md` | `.claude/skills` | `.claude/agents/*.md` | 2.1.332. All 22 agents and the skills were discovered in a test project. |
 | OpenCode | `AGENTS.md` | `.agents/skills` | `.opencode/agents/*.md` | 1.19.5. `opencode agent list` showed all 22 agents. |
-| Codex | `AGENTS.md` | `.agents/skills` | `.codex/agents/*.toml` | 0.160.1. Skills were discovered and the agent TOML parses, but custom agents weren't listed in an untrusted temp project. |
+| Codex | `AGENTS.md` | `.agents/skills` | `.codex/agents/*.toml` | 0.160.1. Skills and all custom agents work once the project is trusted; a field run spawned 43 specialist subagents. |
 | Cursor | `AGENTS.md` | `.agents/skills` | `.cursor/agents/*.md` | Not tested (docs only) |
 | Gemini CLI | `GEMINI.md` → `@./AGENTS.md` | `.agents/skills` | `.gemini/agents/*.md` | Not tested (docs only) |
 | Other | `AGENTS.md` | `.agents/skills` | single-session fallback | n/a |
@@ -192,8 +192,7 @@ None yet. Demos will be recorded from real runs and added under [assets/demos/](
 ## Roadmap
 
 - **0.1** (this release): agents, skills, workflows, policies, adapters, and the npm CLI with tests and CI.
-- **0.2**: verify the Cursor and Gemini CLI adapters on real installs; confirm Codex project-trust behaviour;
-  record the first end-to-end demos.
+- **0.2**: verify the Cursor and Gemini CLI adapters on real installs; record the first end-to-end demos.
 - **0.3**: measured token benchmarks on real tasks; `skills update` with diff review; an optional NEXUS export
   ([spec](docs/integrations/nexus-integration.md)).
 - Later: example applications built end-to-end, community skill index, more adapters.
