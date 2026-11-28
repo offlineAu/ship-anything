@@ -5,7 +5,7 @@ It records what was checked, how it was checked, and what is still unverified.
 
 ## Scope
 
-- **23 external repositories** that could supply skills, tools or patterns: design skills,
+- **29 external repositories** (23 on 2026-11-25, 6 added 2026-11-28) that could supply skills, tools or patterns: design skills,
   video/motion skills, token and context tools, codebase-intelligence tools, reverse-engineering
   tools, multi-agent orchestrators, and the `vercel-labs/skills` installer.
 - **Native configuration formats of 5 coding agents**: Claude Code, OpenAI Codex CLI, OpenCode,

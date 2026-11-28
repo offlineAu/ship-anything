@@ -99,6 +99,9 @@ about how these systems behave come from their docs and source layout, not from 
 | claude-mem | `make-plan`, `do`, `handoff`, `standup` skills overlap our workflow skills; persistent memory | Better automatic recall. We prefer explicit file state for portability and privacy (ADR-006) |
 | pbakaus/impeccable | design review vocabulary, PRODUCT.md and DESIGN.md context | A deterministic slop detector (62 rules) we cannot match with instructions alone. We adopt it as a supporting skill |
 | erkamyaman/rust-anything, morluto/rea | recorded-behaviour gates; idempotent multi-agent `setup` with backups and `--remove` | Their installers back up and undo global config. Ours writes project-level files only, with manifest and rollback (ADR-007) |
+| obra/superpowers (MIT, REFERENCE) | complete methodology: brainstorm → plan → subagent-driven execution, TDD, verification-before-completion; plugins for about 15 agents | Strong habit-forming skills. It forces itself on via a SessionStart hook with `<EXTREMELY_IMPORTANT>` context; we rely on an orchestrator and explicit policies instead, so the two should not run together |
+| github/spec-kit (MIT, REFERENCE) | spec-driven process (constitution → specify → plan → tasks → implement), presets, extension catalogs, workflow overlays | Ahead of us on customising a process without forking (presets, overlays) and on a shareable "constitution". We have no extension catalog by design |
+| storytold/craft-anything (MIT OR Apache-2.0, OPTIONAL) | study → build → check → ready recreation loop with ~320 reverse-engineering tools and evidence records | An enforced likeness check (pages at three widths) we cannot match with instructions. Its goal of recreating someone else's product conflicts with our clone-existing-product rules, so we use only its analysis tools |
 
 ## Where SHIP ANYTHING differs overall
 

@@ -56,6 +56,15 @@ Tools: `git log --stat`, `rg`, dependency graphs, language-appropriate static an
 debuggers/disassemblers on artifacts the user owns, HTTP capture of the user's own
 traffic to environments they control, schema inference from captured samples.
 
+Optional upstream tool: `craft-anything` (see `.ship-anything/registry.yaml`, disabled until
+reviewed under `.ship-anything/policies/external-skills.md`). Its CLI/MCP analysis tools
+produce evidence records with confidence and limitations that map onto RE-01/RE-02 and the
+observed/inferred tags. Only after RE-00, only on targets inside the recorded scope, and in
+its default Clean room mode unless that scope allows reading internals. Deep mode
+(decompilation, Frida, packet capture) runs only in an isolated VM/container. Do not use its
+`rebuild` loop or its global `setup`; recreating a product is `clone-existing-product`'s job,
+under that workflow's originality rules.
+
 ## Task graph
 
 ```

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="512" viewBox="0 0 960 512" role="img" aria-labelledby="t d">
+<title id="t">ship-anything init output</title><desc id="d">Real output of npx ship-anything init --agent claude --yes in a new project: 196 files created, 0 conflicts, with an undo command.</desc>
+<rect width="960" height="512" rx="16" fill="#0D0F12"/>
+
+<rect x="12" y="12" width="936" height="488" rx="12" fill="#15181D" stroke="#2C323A"/>
+<circle cx="36" cy="36" r="6" fill="#2C323A"/><circle cx="56" cy="36" r="6" fill="#2C323A"/><circle cx="76" cy="36" r="6" fill="#2C323A"/>
+<text x="480" y="41" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#9BA3AD">~/my-app</text>
+<line x1="12" y1="54" x2="948" y2="54" stroke="#2C323A"/>
+<text x="28" y="78" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve"><tspan fill="#FF7A3D">$</tspan> npx ship-anything init --agent claude --yes</text>
+<text x="28" y="99" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#9BA3AD" xml:space="preserve">ship-anything init → ~/my-app</text>
+<text x="28" y="120" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#9BA3AD" xml:space="preserve">• agents: Claude Code</text>
+<text x="28" y="141" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve">  <tspan fill="#4ADE80">create</tspan>    .ship-anything/config.yaml</text>
+<text x="28" y="162" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve">  <tspan fill="#4ADE80">create</tspan>    .ship-anything/registry.yaml</text>
+<text x="28" y="183" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve">  <tspan fill="#4ADE80">create</tspan>    .ship-anything/policies (5 files)</text>
+<text x="28" y="204" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve">  <tspan fill="#4ADE80">create</tspan>    .ship-anything/templates (7 files)</text>
+<text x="28" y="225" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve">  <tspan fill="#4ADE80">create</tspan>    .ship-anything/workflows (16 files)</text>
+<text x="28" y="246" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve">  <tspan fill="#4ADE80">create</tspan>    .ship-anything/adapters (2 files)</text>
+<text x="28" y="267" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve">  <tspan fill="#4ADE80">create</tspan>    .ship-anything/agents (22 files)</text>
+<text x="28" y="288" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve">  <tspan fill="#4ADE80">create</tspan>    .ship-anything/state</text>
+<text x="28" y="309" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve">  <tspan fill="#4ADE80">create</tspan>    .claude/skills (58 files)</text>
+<text x="28" y="330" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve">  <tspan fill="#4ADE80">create</tspan>    .agents/skills (58 files)</text>
+<text x="28" y="351" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve">  <tspan fill="#4ADE80">create</tspan>    .claude/agents (22 files)</text>
+<text x="28" y="372" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve">  <tspan fill="#4ADE80">create</tspan>    AGENTS.md</text>
+<text x="28" y="393" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve">  <tspan fill="#4ADE80">create</tspan>    CLAUDE.md</text>
+<text x="28" y="414" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#ECEDEE" xml:space="preserve">  <tspan fill="#4ADE80">create</tspan>    .gitignore</text>
+<text x="28" y="435" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#9BA3AD" xml:space="preserve">• create 196 · update 0 · append 0 · unchanged 0 · conflicts 0</text>
+<text x="28" y="456" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#4ADE80" xml:space="preserve">✔ Applied transaction 2026-11-28T11-51-28-086Z: 196 created, 0 updated.</text>
+<text x="28" y="477" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13.5" fill="#9BA3AD" xml:space="preserve">• Undo with: ship-anything rollback</text>
+</svg>

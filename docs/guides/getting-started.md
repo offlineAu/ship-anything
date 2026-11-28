@@ -4,62 +4,36 @@ SHIP ANYTHING installs agents, skills, workflows and policies into a project so 
 agent you already use (Claude Code, Codex, OpenCode, Cursor, Gemini CLI, or any agent that reads
 `AGENTS.md`) can plan, build, test and ship with them. It does not run its own model.
 
-> **Pre-release (0.1.0).** The package is not published to npm yet, and there is no public
-> repository. Install from a local checkout as shown below. `npx ship-anything init` is the
-> *future* command and does not work today.
+New to this? The [README quick start](../../README.md#quick-start-5-minutes) is the five-minute version.
+This guide goes deeper.
 
 ## Requirements
 
 - Node.js 20 or newer (`node --version`).
-- git (needed for `skills add` from remote sources).
+- git (recommended for undo, and needed for `skills add` from remote sources).
 - At least one coding agent. Current adapter status:
 
-| Agent | `--agent` | Status at 0.1.0 |
+| Agent | `--agent` | Status |
 |---|---|---|
-| Claude Code | `claude` | Generated agents loaded in local tests |
-| OpenCode | `opencode` | Generated agents loaded in local tests |
-| Codex CLI | `codex` | Agent files parse and skills are visible. Custom agents were not listed in an untrusted project (project trust likely needed, unverified) |
-| Cursor | `cursor` | Written from Cursor's docs. Not executed |
-| Gemini CLI | `gemini` | Written from Gemini CLI's docs. Not executed |
+| Claude Code | `claude` | Verified: all 22 agents and skills load |
+| Codex CLI | `codex` | Verified in a trusted project: a real run spawned 43 specialist subagents. Trust the project when asked |
+| OpenCode | `opencode` | Verified: all 22 agents load (orchestrator is the primary agent) |
+| Cursor | `cursor` | Written from Cursor's docs. Not executed yet |
+| Gemini CLI | `gemini` | Written from Gemini CLI's docs. Not executed yet |
 | Anything else | `generic` | `AGENTS.md` + `.agents/skills/`, single-session mode |
 
 Details per tool: [`.ship-anything/adapters/`](../../.ship-anything/adapters/generic.md).
 
-## 1. Install the CLI from a local checkout
-
-First install the CLI's one runtime dependency (`yaml`). The repository is an npm workspace,
-so run this once at the checkout root:
-
-```bash
-cd /path/to/ship-anything
-npm install
-```
-
-Option A: run the binary directly (nothing global is installed):
+## 1. Install into your project
 
 ```bash
 cd /path/to/your-project
-node /path/to/ship-anything/packages/cli/bin/ship-anything.js init --agent claude
+npx ship-anything init                 # detects your agents, shows a plan, asks before writing
+npx ship-anything init --agent codex   # or pick explicitly: claude, codex, opencode, cursor, gemini, generic, all
 ```
 
-Option B: link it once so `ship-anything` is on your PATH:
-
-```bash
-cd /path/to/ship-anything/packages/cli
-npm link             # puts `ship-anything` on your PATH
-cd /path/to/your-project
-ship-anything init --agent claude
-```
-
-Both options read agents and skills straight from the checkout. Remove the link later with
-`npm unlink -g ship-anything`. The examples below use `ship-anything`. With option A, substitute
-`node /path/to/ship-anything/packages/cli/bin/ship-anything.js`.
-
-After the npm release, this will be:
-
-```bash
-npx ship-anything init --agent claude    # future, not available yet
-```
+To have the `ship-anything` command available everywhere, install it globally with `npm install -g ship-anything`.
+The examples below use `ship-anything`; with `npx`, prefix them as `npx ship-anything …`.
 
 Useful flags: `--dry-run` (show what would change), `--agent claude,opencode` or `--agent all`
 (several tools), `--cwd <dir>` (target another directory), `--yes` (no prompt).

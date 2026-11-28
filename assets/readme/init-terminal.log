@@ -1,0 +1,20 @@
+$ npx ship-anything init --agent claude --yes
+ship-anything init → ~/my-app
+• agents: Claude Code
+  create    .ship-anything/config.yaml
+  create    .ship-anything/registry.yaml
+  create    .ship-anything/policies (5 files)
+  create    .ship-anything/templates (7 files)
+  create    .ship-anything/workflows (16 files)
+  create    .ship-anything/adapters (2 files)
+  create    .ship-anything/agents (22 files)
+  create    .ship-anything/state
+  create    .claude/skills (58 files)
+  create    .agents/skills (58 files)
+  create    .claude/agents (22 files)
+  create    AGENTS.md
+  create    CLAUDE.md
+  create    .gitignore
+• create 196 · update 0 · append 0 · unchanged 0 · conflicts 0
+✔ Applied transaction 2026-11-28T11-51-28-086Z: 196 created, 0 updated.
+• Undo with: ship-anything rollback

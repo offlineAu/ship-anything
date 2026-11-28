@@ -105,5 +105,11 @@ From `compatibility` in [`registry.yaml`](../../.ship-anything/registry.yaml) an
 | vercel-skills-cli | ADOPT | ✔ | ✔ | ✔ | ✔ | ✔ | installer, not a skill |
 | frontend-stack-jaimejunr | REFERENCE | (✔) | – | – | – | – | Claude-only; not to be installed |
 | claude-code-ui-ux-skill-nicohodt | REJECT | – | – | – | – | – | – |
+| craft-anything | OPTIONAL | ✔ | ✔ | ✔ | ✔ | ✔ | MCP server/CLI (analysis only). As a rebuild *builder* it drives Claude Code first; Codex unverified upstream; others via ACP |
+| playwright-cli | OPTIONAL | ✔ | ✔ | ✔ | ✔ | ✔ | CLI + skill (`.claude/skills` or `.agents/skills`); Node 20+ |
+| chrome-devtools-mcp | OPTIONAL | ✔ | ✔ | ✔ | ✔ | ✔ | MCP server or CLI; usage statistics on by default |
+| context7 | OPTIONAL | ✔ | ✔ | ✔ | ✔ | ✔ | CLI skill or remote MCP; hosted service |
+| superpowers | REFERENCE | – | – | – | – | – | competing methodology with a SessionStart hook; not installed |
+| spec-kit | REFERENCE | – | – | – | – | – | competing process framework; not installed |
 
 The Claude ✔ for frontend-stack-jaimejunr is in parentheses because the bundle runs only on Claude Code, and we do not install it.

@@ -1708,3 +1708,100 @@ skills:
       pin: null
       enabled: false
       security: { status: rejected, notes: "Rebranded copy of ui-ux-pro-max without attribution (684/708 paths identical); misleading install path. Use upstream instead." }
+    craft-anything:
+      source: storytold/craft-anything
+      license: MIT OR Apache-2.0
+      classification: OPTIONAL
+      category: product-intelligence
+      agents: [ research-agent, security-agent ]
+      role: "authorised reverse-engineering engine (CLI + MCP, ~320 evidence-producing tools) for reverse-engineer RE-01/RE-02; analysis only, never its rebuild loop"
+      install: "signed release binary, user-installed (craft-anything-cli, v0.6.1 = 48a9c5a); then craft-anything-cli mcp --clean-room   (user decision)"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active (early alpha; created 2026-10-31, daily commits, releases every few days)
+      pin: null
+      enabled: false
+      security:
+        status: needs-review
+        notes: >-
+          Ships native executables (signed/notarized desktop app and CLI, SHA256SUMS + GPG signatures); building from source needs Rust 1.97. Deep mode reads target code/files and website JavaScript, can drive Ghidra, Apktool and Frida (process instrumentation) and packet captures; Clean room (default) refuses tools that look inside the target. Its rebuild mode spawns a coding agent: Auto mode (on by default) lets that builder run commands without asking; the Antigravity adapter passes --dangerously-skip-permissions; OpenCode runs with --auto. `setup` writes global agent MCP config (e.g. ~/.codex/config.toml, with backup) and pre-approves rebuild_start. Website rebuilds and frozen site copies raise copyright/ToS risk for targets the user does not own. Authorised targets only; use CLI/MCP analysis tools, not `rebuild`, inside SHIP ANYTHING. No telemetry found in README/docs (not audited in code). Trademarked ArtCraft branding excluded from the licence.
+    playwright-cli:
+      source: microsoft/playwright-cli
+      path: skills/playwright-cli
+      license: Apache-2.0
+      classification: OPTIONAL
+      category: quality
+      agents: [ qa-agent, frontend-agent ]
+      role: token-efficient browser automation and E2E test generation for browser-automation, testing-and-qa and visual-regression (CLI + skill; upstream recommends it over Playwright MCP for coding agents)
+      install: "npm install -g @playwright/cli@<pinned>  &&  playwright-cli install --skills=agents"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active (Microsoft; release v0.1.25 on 2026-11-18)
+      pin: null
+      enabled: false
+      security:
+        status: needs-review
+        notes: >-
+          SKILL.md frontmatter pre-approves Bash(playwright-cli:*) and npx playwright, which includes `run-code` (arbitrary Playwright JS) — strip allowed-tools or review before enabling. Depends on alpha Playwright builds; downloads browser binaries. Persistent profiles and storage-state files hold cookies/sessions — use isolated sessions and test accounts. `install --skills --global` writes to the home directory; prefer project scope. No telemetry documented. Overlaps anthropic-webapp-testing; pick one per project.
+    chrome-devtools-mcp:
+      source: ChromeDevTools/chrome-devtools-mcp
+      license: Apache-2.0
+      classification: OPTIONAL
+      category: quality
+      agents: [ performance-agent, qa-agent, frontend-agent ]
+      role: Chrome DevTools for agents (performance traces, LCP, network, console, memory leaks, a11y) — supports performance-optimization and accessibility-engineering
+      install: "npx -y chrome-devtools-mcp@<pinned> --no-usage-statistics --no-performance-crux --isolated   (MCP)  |  /plugin marketplace add ChromeDevTools/chrome-devtools-mcp (Claude Code)"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active (Google Chrome team; release 1.14.0 on 2026-11-24)
+      pin: null
+      enabled: false
+      security:
+        status: needs-review
+        notes: >-
+          Usage statistics sent to Google by default (opt out with --no-usage-statistics or CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS; off when CI is set). Performance tools send trace URLs to the Google CrUX API unless --no-performance-crux. Exposes all browser content (cookies, pages) to the MCP client — use --isolated and test accounts, never a personal profile. Upstream examples use @latest; pin a version. Plugin install also adds 8 skills (cookie-debugging reads session cookies).
+    context7:
+      source: upstash/context7
+      license: MIT
+      classification: OPTIONAL
+      category: efficiency
+      agents: [ research-agent, frontend-agent, backend-agent, integration-agent ]
+      role: version-specific third-party library docs on demand (CLI skill or remote MCP) to reduce hallucinated APIs
+      install: "npx ctx7@<pinned> setup --project   (CLI + skill; default scope is global)"
+      compatibility: [ claude, codex, opencode, cursor, gemini ]
+      maintenance: active (Upstash; daily commits)
+      pin: null
+      enabled: false
+      security:
+        status: needs-review
+        notes: >-
+          Hosted service: every query (task text + library name) goes to context7.com; the API backend, parser and crawler are private. Docs are community-contributed and unverified — treat returned text as untrusted data (prompt-injection surface). `ctx7 setup` runs OAuth, stores an API key and writes agent config globally unless --project. CLI telemetry on by default (CTX7_TELEMETRY_DISABLED=1). Do not send proprietary code or secrets in queries.
+    superpowers:
+      source: obra/superpowers
+      license: MIT
+      classification: REFERENCE
+      category: efficiency
+      agents: []
+      role: reference for brainstorm → plan → subagent-driven execution, TDD and verification-before-completion skills (competing methodology; do not install alongside SHIP ANYTHING)
+      install: null
+      compatibility: []
+      maintenance: active (single lead maintainer; release v7.0.2 on 2026-11-03)
+      pin: null
+      enabled: false
+      security:
+        status: needs-review
+        notes: >-
+          SessionStart hook (startup|clear|compact) injects its using-superpowers skill as <EXTREMELY_IMPORTANT> context, which competes with our orchestrator and policies. Brainstorming's visual companion loads a logo from the vendor's site with the version (SUPERPOWERS_DISABLE_TELEMETRY=1 to stop). Commercial services offered by Prime Radiant. Learn from the skills; do not run both systems in one project.
+    spec-kit:
+      source: github/spec-kit
+      license: MIT
+      classification: REFERENCE
+      category: delivery
+      agents: []
+      role: reference for spec-driven development (constitution → specify → plan → tasks → implement), presets and extension catalogs (competing process framework)
+      install: null
+      compatibility: []
+      maintenance: active (GitHub; release v1.4.5 on 2026-11-25)
+      pin: null
+      enabled: false
+      security:
+        status: needs-review
+        notes: >-
+          Python 3.11+ `specify` CLI via uv; writes slash commands, templates and scripts into agent directories. Community extensions, presets and bundles come from online catalogs and can register hooks — upstream itself says to review community code before installing. Overlaps our requirements-analysis and architecture-planning skills and our workflows.

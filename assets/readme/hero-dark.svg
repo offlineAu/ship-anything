@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="320" viewBox="0 0 960 320" role="img" aria-labelledby="t d">
+<title id="t">SHIP ANYTHING: Your AI Product Studio</title><desc id="d">Wordmark, tagline and the wave mark: offset bars that end at a gate line.</desc>
+<rect width="960" height="320" rx="16" fill="#0D0F12"/>
+
+<rect x="1" y="1" width="958" height="318" rx="15" fill="none" stroke="#2C323A"/>
+<text x="56" y="92" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14" fill="#9BA3AD" letter-spacing="1">npx ship-anything init</text>
+<text x="56" y="168" font-family="Archivo, 'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="66" font-weight="800" fill="#ECEDEE" letter-spacing="-1">SHIP ANYTHING</text>
+<text x="56" y="214" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#ECEDEE">Your AI Product Studio.</text>
+<text x="56" y="250" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" fill="#9BA3AD">Build Anything. Ship Everything.</text>
+<text x="56" y="286" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#9BA3AD">22 agents · 57 skills · 15 workflows · Claude Code · Codex · OpenCode · Cursor · Gemini CLI</text>
+<rect x="700" y="110" width="77" height="15.400000000000002" rx="3.3000000000000003" fill="#ECEDEE"/><rect x="724.2" y="138.6" width="94.60000000000001" height="15.400000000000002" rx="3.3000000000000003" fill="#ECEDEE"/><rect x="748.4" y="167.2" width="77" height="15.400000000000002" rx="3.3000000000000003" fill="#FF7A3D"/><rect x="711" y="195.8" width="101.2" height="15.400000000000002" rx="3.3000000000000003" fill="#ECEDEE"/><rect x="865" y="101.2" width="5.5" height="118.80000000000001" rx="2.2" fill="#FF7A3D"/>
+</svg>

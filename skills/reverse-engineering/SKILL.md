@@ -87,6 +87,10 @@ Do not use when:
 - Optional upstream: `rea` (see .ship-anything/registry.yaml) — MCP/CLI for app behaviour
   to native binaries; its setup edits agent MCP config, so install only via
   `.ship-anything/policies/external-skills.md` with user approval.
+- Optional upstream: `craft-anything` (see .ship-anything/registry.yaml) — Rust CLI/MCP
+  engine with evidence records for steps 3–6. Use only after the authorization gate, in Clean
+  room mode unless the scope allows internals; Deep mode (decompiler, Frida, captures) only
+  in isolation. Do not use its `rebuild` loop or its global `setup`, which pre-approves tools.
 - Reference: `reverse-engineer-anything` — authorisation records and evidence ledgers.
 
 ## Quality standards

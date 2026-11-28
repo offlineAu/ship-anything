@@ -6,6 +6,11 @@ Method and limits: [README.md](README.md). Each repo was confirmed to exist thro
 quality signal, and very high counts are treated with skepticism. Install commands are quoted
 verbatim from upstream and were **not run**.
 
+**2026-11-28 additions.** Six repos were added on 2026-11-28 (storytold/craft-anything, microsoft/playwright-cli,
+ChromeDevTools/chrome-devtools-mcp, upstash/context7, obra/superpowers, github/spec-kit). For those, "stars" means the
+count **as reported by the GitHub API on 2026-11-28**, and the same read-only method applies: nothing was cloned,
+installed or run.
+
 **Classification key**
 - **ADOPT**: recommended default. Still installed from upstream and pinned, never vendored without review.
 - **ADAPT**: re-express selected parts in our own skills, with attribution.
@@ -44,6 +49,12 @@ When the research notes and the registry differ, **the registry is final**. Ever
 | morluto/rea | MIT | rea | OPTIONAL |
 | Speedrunlab/reverse-engineer-anything | MIT | reverse-engineer-anything | REFERENCE |
 | erkamyaman/rust-anything | MIT | rust-anything | REFERENCE |
+| storytold/craft-anything | MIT OR Apache-2.0 (GitHub reports Apache-2.0) | craft-anything | OPTIONAL |
+| microsoft/playwright-cli | Apache-2.0 | playwright-cli | OPTIONAL |
+| ChromeDevTools/chrome-devtools-mcp | Apache-2.0 | chrome-devtools-mcp | OPTIONAL |
+| upstash/context7 | MIT (client only; backend private) | context7 | OPTIONAL |
+| obra/superpowers | MIT | superpowers | REFERENCE |
+| github/spec-kit | MIT | spec-kit | REFERENCE |
 
 ---
 
@@ -304,6 +315,59 @@ When the research notes and the registry differ, **the registry is final**. Ever
 - **Classification: ADOPT** as the standard installer for public skills and as the reference for directory layout (ADR-003, ADR-009).
   We do not depend on it at runtime: our CLI targets Node ≥20 (ADR-007).
 
+### obra/superpowers
+
+- **Exists:** yes. About 329k stars (328,660), 29k forks, 1,190 watchers, as reported by the GitHub API on 2026-11-28.
+  Created 2025-10-09, last push 2026-11-28. The star count is very high and was not verified; forks and watchers are
+  in proportion, and commits come mostly from one maintainer (obra, 529 contributions).
+- **License:** MIT (root LICENSE).
+- **Structure:** 15 `skills/*/SKILL.md` (brainstorming, writing-plans, executing-plans, subagent-driven-development,
+  dispatching-parallel-agents, test-driven-development, systematic-debugging, verification-before-completion,
+  requesting/receiving-code-review, using-git-worktrees, finishing-a-development-branch, writing-skills,
+  using-superpowers, diagnosing-superpowers), `hooks/` (SessionStart), and plugin manifests for about 15 agents
+  (`.claude-plugin`, `.codex-plugin`, `.cursor-plugin`, `.opencode`, `gemini-extension.json`, …).
+- **Install (verbatim):** `/plugin install superpowers@claude-plugins-official` (Claude Code);
+  `gemini extensions install https://github.com/obra/superpowers`. OpenCode: "Fetch and follow instructions from
+  https://raw.githubusercontent.com/obra/superpowers/refs/heads/main/.opencode/INSTALL.md".
+- **Security:**
+  - `hooks/hooks.json` runs `session-start` on `startup|clear|compact`. It injects the full `using-superpowers`
+    skill wrapped in `<EXTREMELY_IMPORTANT>` into every session, which competes with our orchestrator and policies.
+  - The brainstorming "visual companion" loads a logo from the vendor's website with the Superpowers version.
+    `SUPERPOWERS_DISABLE_TELEMETRY` (or Claude Code's `DISABLE_TELEMETRY`) stops it.
+  - Commercial support is offered by Prime Radiant.
+  - The OpenCode install asks the agent to fetch and follow remote instructions from a moving branch.
+- **Overlap:** a complete competing methodology: brainstorm → spec → plan → subagent-driven execution with review.
+  Overlaps our orchestrator, `requirements-analysis`, `architecture-planning`, `parallel-agent-coordination`,
+  `code-review` and `regression-prevention`.
+- **Maintenance:** active. Release v7.0.2 on 2026-11-03 (commit 22f0b46).
+- **Classification: REFERENCE.** Worth studying for `verification-before-completion`, `systematic-debugging` and
+  the TDD discipline. Do not install it in a SHIP ANYTHING project: two always-on methodologies give the agent
+  conflicting instructions.
+- **Unverified:** skill text was not read in full; the logo request payload was not inspected.
+
+### github/spec-kit
+
+- **Exists:** yes. About 153k stars (152,503), 13.7k forks, 749 watchers, as reported by the GitHub API on 2026-11-28.
+  Created 2025-08-21, last push 2026-11-26. Owned by the GitHub organisation.
+- **License:** MIT (root LICENSE).
+- **Structure:** a Python CLI (`specify`, `src/`, `pyproject.toml`), `templates/`, `scripts/`, `presets/`,
+  `extensions/`, `workflows/`, `bundles/` and `integrations/` for many coding agents.
+- **Install (verbatim):** `uv tool install specify-cli`, then slash commands such as `/speckit-constitution`,
+  `/speckit-specify`, `/speckit-plan`, `/speckit-tasks`, `/speckit-implement`, `/speckit-converge`.
+  Bug-fix and assessment processes are extensions: `specify extension add bug`, `specify extension add assess`.
+- **Deps:** Python 3.11+, uv, git.
+- **Security:**
+  - `specify init` writes commands, templates and scripts into the agent's directories.
+  - Extensions, presets, workflows and bundles are searched in online catalogs. Extensions can declare hooks and
+    lifecycle events. The README itself tells users to review community source before installing.
+  - Private catalogs use authentication tokens.
+- **Overlap:** a competing process framework. Its constitution and spec → plan → tasks flow overlaps our
+  `product-discovery` and `build-anything` workflows and `requirements-analysis`.
+- **Maintenance:** very active. Release v1.4.5 on 2026-11-25 (commit f201054).
+- **Classification: REFERENCE.** Useful ideas: a project "constitution", presets for regulated traceability, and
+  workflow overlays that adapt a process without forking it. Not installed alongside SHIP ANYTHING.
+- **Unverified:** the `specify` scripts and catalog contents were not read.
+
 ## Context, tokens and codebase intelligence
 
 ### yamadashy/repomix
@@ -394,6 +458,28 @@ When the research notes and the registry differ, **the registry is final**. Ever
 - **Classification: OPTIONAL**, for advanced users only.
 - **Unverified:** beacon endpoint and payload, and the licenses of the Rust sub-crates.
 
+### upstash/context7
+
+- **Exists:** yes. About 66k stars (65,567), 3.3k forks, as reported by the GitHub API on 2026-11-28. Last push 2026-11-28.
+- **License:** MIT for this repository. Per its README, "the supporting components — API backend, parsing engine, and
+  crawling engine — are private and not part of this repository".
+- **Structure:** `packages/` (`cli` = `ctx7`, `mcp`, `sdk`, `admin-mcp`, `opencode`, `pi`, `tools-ai-sdk`), and
+  `skills/` (`context7-cli`, `context7-mcp`, `find-docs`).
+- **Install (verbatim):** `npx ctx7 setup` ("Authenticates via OAuth, generates an API key, and installs the
+  appropriate skill"). Manual MCP: server URL `https://mcp.context7.com/mcp` with an `Authorization: Bearer` header.
+- **Deps:** Node 22.13+ for the CLI.
+- **Security:**
+  - Every lookup sends the query text and library name to context7.com.
+  - Library docs are community-contributed; upstream "cannot guarantee the accuracy, completeness, or security" of
+    them. Returned text is a prompt-injection surface and must be treated as data.
+  - `setup` writes agent config **globally by default** (`--project` for project scope) and stores an API key.
+  - CLI telemetry is on by default; `CTX7_TELEMETRY_DISABLED=1` turns it off.
+- **Overlap:** fills a gap. We have no internal skill for fetching current third-party API docs.
+- **Maintenance:** very active (Upstash staff, daily commits; latest release `mcpb-v4.9.1` on 2026-11-27).
+- **Classification: OPTIONAL.** Useful for agents writing integration code against fast-moving libraries. Use
+  project-scoped setup, telemetry off, and never put proprietary code or secrets in queries.
+- **Unverified:** what the telemetry payload contains; the hosted backend.
+
 ## Reverse engineering and migration
 
 ### morluto/rea
@@ -430,3 +516,126 @@ When the research notes and the registry differ, **the registry is final**. Ever
 - **Architecture:** profile → bridge → record → port → diff → gate → lift.
 - **Security:** `record` and `diff` run the user's program many times, so side effects repeat. `setup` edits global configs (with backups and `--remove`).
 - **Classification: REFERENCE** for `rust-modernization`: the record-then-gate verification pattern and an idempotent setup with backups.
+
+### storytold/craft-anything
+
+- **Exists:** yes. About 45k stars (44,973), 8.9k forks, 197 watchers, 478 open issues, as reported by the GitHub API
+  on 2026-11-28. Created 2026-10-31, last push 2026-11-28. The stargazer list could not be read through the API
+  (HTTP 404), so star farming was not checked directly. Other signals look organic: PR numbers above 2,400, many
+  outside contributors, and a 1:5 fork-to-star ratio. It is not a fork or mirror. It belongs to the ArtCraft
+  "Craft App Suite" (storytold org).
+- **License:** dual **MIT OR Apache-2.0** (`LICENSE-MIT`, `LICENSE-APACHE`, `NOTICE`). GitHub's SPDX field reports only
+  Apache-2.0. The ArtCraft name, wordmark, logos and app icon are trademarks and excluded. Bundled fonts and icons
+  are OFL/ISC (listed in `ATTRIBUTION.md`).
+- **What it is:** a pure-Rust reverse-engineering and recreation engine with a desktop app (egui), a CLI
+  (`craft-anything-cli`) and an MCP server. It has about 320 tools (300 in the engine) for native programs, .NET,
+  Java, Android, Apple, Electron/JavaScript, websites, firmware, packet captures, databases and game files. It has
+  its own decoders, disassembler and decompiler, and uses Ghidra when installed. Results are evidence records with
+  confidence, coverage and limitations.
+- **Workflow:** Study → Build → Check → Ready. A local coding agent (Claude Code first; Codex, Copilot, Grok, Kimi
+  and ACP agents with varying verification) builds a new project from a request such as "Recreate this website".
+  It compares the build with the original (pages at three widths, game self-tests, app runs) and refines it.
+  `craft-anything-cli rebuild <url> "<request>"` does the same headless.
+- **Modes:**
+  - **Clean room (default):** "nothing inside the original is read". It works from screenshots, visible text,
+    measured layout and the user's pictures. Tools that look inside are refused. Upstream says this "is not an
+    operating-system sandbox".
+  - **Deep:** "every tool is used, for your private use". This reads program code and files, a website's
+    JavaScript and start page, and enables Ghidra, Apktool, **Frida instrumentation** (9 tools, including
+    `frida_script_run`) and packet-capture tools.
+- **Executables:** yes. Signed and notarized macOS dmg and CLI zip, code-signed Windows MSI, Linux
+  AppImage/deb/rpm/flatpak, FreeBSD tarballs and a WebAssembly viewer. Each release has `SHA256SUMS.txt` and GPG
+  `.asc` signatures. Building from source needs Rust 1.97+. The repo has a `.githooks/pre-commit`, which only
+  matters for contributors.
+- **Install (verbatim):** `cargo install --path apps/craft-anything-cli`; `craft-anything-cli doctor`;
+  `craft-anything-cli mcp`; `craft-anything-cli setup` "connects Craft Anything to coding-agent apps".
+- **Agent configuration changes:** `setup --client codex --yes` writes `[mcp_servers.craft-anything]` into
+  `~/.codex/config.toml` with a backup, and pre-approves `rebuild_start`. Other clients were not checked.
+- **Security:**
+  - The rebuild loop runs a coding agent as the user. **Auto mode is on by default**: builder actions go ahead
+    without asking, except a fixed set (deletes outside the project, system changes, publishing). Upstream's own
+    docs say "commands: allow" (Auto mode's default) trusts the builder.
+  - For Claude Code it uses only documented flags (`-p`, `--mcp-config`, `--strict-mcp-config`,
+    `--permission-prompt-tool`). However, the Antigravity adapter passes `--dangerously-skip-permissions` and
+    OpenCode runs with `--auto`.
+  - It installs project dependencies, so `npm` install scripts run (upstream warns about this).
+  - Optional asset generation uses the user's fal.ai key, with a $5 default budget.
+  - No telemetry or update check is mentioned in the README or docs we read. The code was not audited.
+- **Legal and ToS:**
+  - "Recreate this website/app/game" can produce lookalikes of products the user does not own.
+  - A recent commit adds "Pin a website as a frozen copy served on its own port".
+  - Deep mode reads third-party code, which may breach EULAs or site terms.
+  - Upstream states it "never bypasses DRM, logins or anti-cheat" and that the agent is told not to copy logos,
+    photos or text without permission. That is an instruction to the agent, not an enforced control.
+  - Frida and packet capture are dual-use.
+  - Upstream's `docs/claude-code.md` lists open questions about Anthropic terms for its planned managed tier.
+- **Fit with SHIP ANYTHING:**
+  - **`workflows/reverse-engineer.md`:** after RE-00 records the authorization, `craft-anything-cli` (or its MCP
+    server) can run RE-01 artifact inventory and RE-02 interface capture on targets the user owns. Its evidence
+    records map onto our evidence ledger; confidence and limitations become our observed/inferred tags. Use Clean
+    room unless the recorded scope allows reading internals. Deep mode, Frida and captures only in an isolated
+    VM/container, and never against third-party services.
+  - **`skills/reverse-engineering/SKILL.md`:** an optional tool for procedure steps 3–6 (triage, deepen, dynamic
+    observation), next to `rea`.
+  - **`workflows/clone-existing-product.md`:** **not recommended.** Its `rebuild` loop aims for likeness, while our
+    workflow requires original branding, copy and assets and works from the public surface only. At most, use
+    Clean room screenshots of the user's **own** product when re-platforming it.
+- **Overlap:** `rea` (also an MCP reverse-engineering engine) and `rust-anything` (record-and-compare loop). It is
+  broader than either and more actively maintained, but younger (four weeks old, early alpha).
+- **Maintenance:** very active. Daily commits by many contributors. Releases v0.5.0 (2026-11-06), v0.6.0
+  (2026-11-09) and v0.6.1 (2026-11-12, tag commit 48a9c5a). HEAD on 2026-11-28 was 14c502c. Upstream marks it
+  "early alpha".
+- **Classification: OPTIONAL**, analysis tools only, for authorised targets. User-installed from a signed release,
+  never bundled or auto-configured by SHIP ANYTHING. Do not use its `rebuild` loop inside our workflows. Do not use
+  `setup` (it pre-approves tools in the user's global agent config); add the MCP server per project in Clean-room mode.
+- **Unverified:** the Rust source, the full tool list's effects, whether any network calls exist beyond those
+  documented, the `setup` behaviour for clients other than Codex, and the star count.
+
+## Browser QA and debugging
+
+### microsoft/playwright-cli
+
+- **Exists:** yes. About 15.5k stars, 962 forks, as reported by the GitHub API on 2026-11-28. Last push 2026-11-24.
+  The repo was created in 2020 and repurposed (its stars predate the current CLI); owned by Microsoft.
+- **License:** Apache-2.0 (root LICENSE and `package.json`).
+- **Structure:** npm package `@playwright/cli` (bin `playwright-cli`), one skill `skills/playwright-cli/SKILL.md` with 10
+  reference files (tests, request mocking, storage state, tracing, video, running code), and maintainer-only
+  `.claude/skills/dev`.
+- **Install (verbatim):** `npm install -g @playwright/cli@latest`, then `playwright-cli install --skills`
+  (`--skills=agents` installs into `.agents/skills`; `--global` into the home directory).
+- **Deps:** Node 20+. Depends on **alpha** Playwright builds (`1.66.0-alpha-2026-11-18`); downloads browser binaries.
+- **Security:**
+  - `SKILL.md` frontmatter sets `allowed-tools: Bash(playwright-cli:*) Bash(npx playwright:*) …`. That pre-approves
+    `playwright-cli run-code`, which runs arbitrary Playwright JavaScript.
+  - Persistent profiles and storage-state files contain cookies and sessions. Use isolated sessions and test accounts.
+  - No hooks, MCP config changes or telemetry documented.
+- **Alternative:** microsoft/playwright-mcp (about 40k stars, Apache-2.0, v0.0.86) is the MCP form. Its own README
+  recommends the CLI + skill for coding agents because it is more token-efficient. Not registered separately.
+- **Overlap:** `anthropic-webapp-testing` (Python helpers). Pick one per project. Supports our `browser-automation`,
+  `testing-and-qa` and `visual-regression` skills.
+- **Maintenance:** very active (Playwright team; release v0.1.25 on 2026-11-18, commit dc5f4d5).
+- **Classification: OPTIONAL** for the QA agent. Install per project, pinned, and review `allowed-tools` before enabling.
+- **Unverified:** the CLI source was not read.
+
+### ChromeDevTools/chrome-devtools-mcp
+
+- **Exists:** yes. About 60k stars (59,670), 4.9k forks, as reported by the GitHub API on 2026-11-28. Last push
+  2026-11-27. Owned by the Chrome DevTools team (Google).
+- **License:** Apache-2.0.
+- **Structure:** an MCP server and `chrome-devtools` CLI (npm `chrome-devtools-mcp`), 8 skills (`chrome-devtools`,
+  `chrome-devtools-cli`, `a11y-debugging`, `cookie-debugging`, `debug-optimize-lcp`, `memory-leak-debugging`,
+  `inspect-in-devtools`, `troubleshooting`), and plugin manifests for Claude Code, Codex, Cursor, Gemini and Kimi.
+- **Install (verbatim):** MCP config `"command": "npx", "args": ["-y", "chrome-devtools-mcp@latest"]`; Claude Code
+  plugin `/plugin marketplace add ChromeDevTools/chrome-devtools-mcp`.
+- **Deps:** Node and current stable Chrome (or Chrome for Testing).
+- **Security:**
+  - "Google collects usage statistics … Data collection is **enabled by default**." Opt out with
+    `--no-usage-statistics` or `CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS`; off when `CI` is set.
+  - Performance tools send trace URLs to the Google CrUX API unless `--no-performance-crux`.
+  - The server exposes the whole browser (pages, cookies) to the MCP client. Use `--isolated` and test accounts.
+  - Upstream examples use `@latest`; pin a version.
+- **Overlap:** complements Playwright (DevTools-grade performance traces, LCP, memory, network). Supports our
+  `performance-optimization`, `accessibility-engineering` and `observability` work.
+- **Maintenance:** very active (release 1.14.0 on 2026-11-24, commit 597b029).
+- **Classification: OPTIONAL** for the performance and QA agents, with usage statistics and CrUX off.
+- **Unverified:** the telemetry payload; skill text was not read in full.

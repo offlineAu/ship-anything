@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="370" viewBox="0 0 960 370" role="img" aria-labelledby="t d">
+<title id="t">How a SHIP ANYTHING request flows</title><desc id="d">Five steps left to right: you describe the goal; the orchestrator sizes it and plans; specialists build in parallel; quality gates verify with evidence and send failures back; you approve any push, deploy, publish or payment.</desc>
+<rect width="960" height="370" rx="16" fill="#FAFAF7"/>
+
+<text x="24" y="44" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#14161A">How a request flows</text>
+
+<g>
+<rect x="24" y="70" width="150" height="168" rx="12" fill="#FFFFFF" stroke="#D6D6CF"/>
+<rect x="24" y="70" width="150" height="5" rx="2" fill="#14161A"/>
+<text x="40" y="104" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#525861">1</text>
+<text x="40" y="132" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#14161A">You</text>
+<text x="40" y="166" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">describe what</text><text x="40" y="188" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">you want, in</text><text x="40" y="210" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">plain words</text>
+</g>
+<g>
+<rect x="196" y="70" width="160" height="168" rx="12" fill="#FFFFFF" stroke="#D6D6CF"/>
+<rect x="196" y="70" width="160" height="5" rx="2" fill="#B4410C"/>
+<text x="212" y="104" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#525861">2</text>
+<text x="212" y="132" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#14161A">Orchestrator</text>
+<text x="212" y="166" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">sizes it L1–L4,</text><text x="212" y="188" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">picks workflows,</text><text x="212" y="210" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">writes plan.yaml</text>
+</g>
+<g>
+<rect x="378" y="70" width="176" height="168" rx="12" fill="#FFFFFF" stroke="#D6D6CF"/>
+<rect x="378" y="70" width="176" height="5" rx="2" fill="#0E7490"/>
+<text x="394" y="104" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#525861">3</text>
+<text x="394" y="132" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#14161A">Specialists</text>
+<text x="394" y="166" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">frontend · backend</text><text x="394" y="188" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">database · ux · 3D</text><text x="394" y="210" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">work in parallel</text>
+</g>
+<g>
+<rect x="576" y="70" width="172" height="168" rx="12" fill="#FFFFFF" stroke="#D6D6CF"/>
+<rect x="576" y="70" width="172" height="5" rx="2" fill="#166534"/>
+<text x="592" y="104" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#525861">4</text>
+<text x="592" y="132" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#14161A">Quality gates</text>
+<text x="592" y="166" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">QA re-runs tests,</text><text x="592" y="188" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">security, perf —</text><text x="592" y="210" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">evidence required</text>
+</g>
+<g>
+<rect x="770" y="70" width="166" height="168" rx="12" fill="#FFFFFF" stroke="#D6D6CF"/>
+<rect x="770" y="70" width="166" height="5" rx="2" fill="#854D0E"/>
+<text x="786" y="104" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#525861">5</text>
+<text x="786" y="132" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#14161A">You approve</text>
+<text x="786" y="166" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">push, deploy,</text><text x="786" y="188" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">publish or pay</text><text x="786" y="210" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525861">only with your OK</text>
+</g><path d="M177 154 H187" stroke="#787E87" stroke-width="2"/><path d="M185 149 L193 154 L185 159 Z" fill="#787E87"/><path d="M359 154 H369" stroke="#787E87" stroke-width="2"/><path d="M367 149 L375 154 L367 159 Z" fill="#787E87"/><path d="M557 154 H567" stroke="#787E87" stroke-width="2"/><path d="M565 149 L573 154 L565 159 Z" fill="#787E87"/><path d="M751 154 H761" stroke="#787E87" stroke-width="2"/><path d="M759 149 L767 154 L759 159 Z" fill="#787E87"/><path d="M662 242 V266 H466 V246" fill="none" stroke="#787E87" stroke-width="1.5" stroke-dasharray="4 4"/>
+<path d="M461 252 L466 242 L471 252 Z" fill="#787E87"/>
+<text x="476" y="284" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#525861">failed check → back to the specialist with the evidence</text>
+<rect x="24" y="306" width="912" height="48" rx="10" fill="#F0F0EB"/>
+<text x="44" y="336" font-family="'IBM Plex Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#14161A">Everything is written to <tspan font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#B4410C">.ship-anything/state/</tspan> — plan, decisions, task reports — so any session can resume.</text>
+</svg>

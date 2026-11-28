@@ -1,17 +1,24 @@
 # assets/readme
 
-**No README assets exist yet.** This directory is a placeholder for images embedded in the
-repository README and docs. Style rules: [Brand guidelines §7](../../docs/branding/brand-guidelines.md#7-readme-visual-style).
+Images embedded in the repository README. They're generated, not hand-drawn: run
+`node scripts/generate/readme-assets.mjs` after changing brand tokens, counts or the captured log.
 
-## What will go here
+| File | Source |
+|---|---|
+| `hero-{light,dark}.svg` | Wordmark, tagline and wave mark (brand concept A, provisional until a logo is designed) |
+| `how-it-works-{light,dark}.svg` | Request flow: you → orchestrator → specialists → gates → your approval |
+| `init-terminal-{light,dark}.svg` | Real output of `npx ship-anything@0.1.0 init --agent claude --yes`, captured 2026-11-28 in `init-terminal.log` (path shortened to `~/my-app`) |
+
+Style rules: [Brand guidelines §7](../../docs/branding/brand-guidelines.md#7-readme-visual-style).
+
+## Still to produce
 
 | File | Purpose |
 |---|---|
-| `hero-{light,dark}.svg` or `hero-{light,dark}.png` | Top-of-README hero (wordmark + tagline + one real artifact) |
 | `architecture-{light,dark}.svg` | The four-layer diagram from [`docs/architecture/overview.md`](../../docs/architecture/overview.md), drawn as SVG |
 | `waves-{light,dark}.svg` | Example wave plan (orchestrator → specialists → gates) |
 | `status-ladder-{light,dark}.svg` | `PLANNED → … → SHIPPED` status model |
-| `init-terminal.{png,gif,mp4}` | Frame or short clip of a **real** `ship-anything init` run |
+| `init-terminal.{gif,mp4}` | Short clip of a **real** run, including the agent working |
 | `og-card-1200x630.png` | Open Graph / social preview image |
 
 ## Naming
