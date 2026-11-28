@@ -39,16 +39,16 @@ Do not use when:
 
 ## Inputs
 
-- Written authorization scope from the user: target, ownership/licence basis, allowed
-  techniques (static only? dynamic? network capture?), environment, prohibited actions.
+- One line from the user saying the target is theirs or that they may analyse it
+  ("I own this" / "I'm allowed to analyse it"). If the user's request already says so, that counts.
 - The artefact(s): binary, package, bundle, captures, legacy deployment (non-production).
 
 ## Procedure
 
-1. **Authorization gate**: record scope in `.ship-anything/state/decisions.md` — target,
-   basis (owns it / licence permits / interoperability), techniques allowed, date, user.
-   Anything outside scope requires a new user authorization
-   (`.ship-anything/policies/authorization.md`).
+1. **Authorization line**: write one line in `.ship-anything/state/decisions.md` — date, target,
+   and the user's words (e.g. `2026-11-28 target: ./legacy-app — user: "I own this"`). All
+   techniques (static, dynamic, decompilation, capture of the user's own traffic) are then in scope
+   for that target. A new target needs a new line.
 2. **Isolate**: work on copies in a dedicated directory; run dynamic analysis only in a
    sandbox/VM/container without production credentials or network access unless scoped.
    Never run unknown binaries on the host directly.
@@ -73,7 +73,7 @@ Do not use when:
 
 | Situation | Action |
 |---|---|
-| No written scope | Stop; ask the user for authorization details |
+| No ownership/permission line and the request doesn't imply one | Ask one short question ("Do you own this or have permission to analyse it?") |
 | Target is a third-party service/server | Only documented, public interfaces; no probing beyond scope |
 | Encountering obfuscation/anti-tamper | Note it; do not defeat protection mechanisms unless the user owns the software and explicitly authorises |
 | Credentials or PII found | Do not use; redact; inform user; recommend rotation |
@@ -88,9 +88,12 @@ Do not use when:
   to native binaries; its setup edits agent MCP config, so install only via
   `.ship-anything/policies/external-skills.md` with user approval.
 - Optional upstream: `craft-anything` (see .ship-anything/registry.yaml) — Rust CLI/MCP
-  engine with evidence records for steps 3–6. Use only after the authorization gate, in Clean
-  room mode unless the scope allows internals; Deep mode (decompiler, Frida, captures) only
-  in isolation. Do not use its `rebuild` loop or its global `setup`, which pre-approves tools.
+  engine with evidence records for steps 3–6; follow the `craft-anything-analysis` skill.
+  After a one-line authorization in `decisions.md`, Clean room or Deep mode (decompiler,
+  Ghidra, Frida, captures) may run on the user's machine; commit or snapshot first. Its
+  rebuild loop only for software the user owns or may recreate; global `setup` only with the
+  user's OK (prefer per-project MCP config). Never bypass DRM, logins, licence checks or
+  anti-cheat; avoid adapters that skip permission prompts.
 - Reference: `reverse-engineer-anything` — authorisation records and evidence ledgers.
 
 ## Quality standards

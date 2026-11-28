@@ -41,7 +41,7 @@ function hero(t) {
 <text x="56" y="168" ${DISPLAY} font-size="66" font-weight="800" fill="${t.text}" letter-spacing="-1">SHIP ANYTHING</text>
 <text x="56" y="214" ${SANS} font-size="24" font-weight="600" fill="${t.text}">Your AI Product Studio.</text>
 <text x="56" y="250" ${SANS} font-size="20" fill="${t.muted}">Build Anything. Ship Everything.</text>
-<text x="56" y="286" ${MONO} font-size="13" fill="${t.muted}">22 agents · 57 skills · 15 workflows · Claude Code · Codex · OpenCode · Cursor · Gemini CLI</text>
+<text x="56" y="286" ${MONO} font-size="13" fill="${t.muted}">22 agents · 63 skills · 15 workflows · Claude Code · Codex · OpenCode · Cursor · Gemini CLI</text>
 ${waveMark(700, 110, t, 1.1)}`;
   return svg(960, 320, 'SHIP ANYTHING: Your AI Product Studio', 'Wordmark, tagline and the wave mark: offset bars that end at a gate line.', body, t);
 }

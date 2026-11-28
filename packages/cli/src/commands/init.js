@@ -6,10 +6,12 @@ import { findContentRoot, listAgents, listSkills, walk } from '../lib/content.js
 import { plan, apply } from '../lib/installer.js';
 import { detectAgents } from '../lib/detect.js';
 import { confirm, ui } from '../lib/ui.js';
+import { PROFILES, parseProfiles, resolveProfile } from '../lib/profiles.js';
 
 const SA = '.ship-anything';
 
-export function buildOps(root, target, agentIds) {
+export function buildOps(root, target, agentIds, profileNames = ['full']) {
+  const profile = resolveProfile(root, profileNames);
   const ops = [];
   const add = (p, content, extra = {}) => ops.push({ path: p, content, kind: 'file', ...extra });
   const copyTree = (srcDir, destDir, filter = () => true) => {
@@ -34,11 +36,16 @@ export function buildOps(root, target, agentIds) {
 
   // 2. Skills: copy each skill folder once per distinct skills directory.
   const disabled = readDisabled(target);
+  //    With a profile, only its skills go to native dirs (preloaded by the host); the rest go to
+  //    .ship-anything/skills/, an on-demand library read by path when a contract names a skill.
   const skills = listSkills(root).filter((s) => s.data && !disabled.has(s.id));
+  const native = profile.full ? skills : skills.filter((s) => profile.skills.has(s.id));
+  const library = profile.full ? [] : skills.filter((s) => !profile.skills.has(s.id));
   const skillDirs = [...new Set([...agentIds.map((id) => ADAPTERS[id].skillsDir), '.agents/skills'])];
   for (const dir of skillDirs) {
-    for (const s of skills) copyTree(s.dir, path.posix.join(dir, s.id));
+    for (const s of native) copyTree(s.dir, path.posix.join(dir, s.id));
   }
+  for (const s of library) copyTree(s.dir, `${SA}/skills/${s.id}`);
 
   // 3. Native agent definitions.
   for (const id of agentIds) {
@@ -46,7 +53,10 @@ export function buildOps(root, target, agentIds) {
     if (!spec) continue;
     // Cursor also loads .claude/agents/ — avoid duplicate subagents when both are installed.
     if (id === 'cursor' && agentIds.includes('claude')) continue;
-    for (const a of agents) add(path.posix.join(spec.dir, `${a.id}${spec.ext}`), spec.render(a));
+    for (const a of agents) {
+      if (!profile.full && !profile.agents.has(a.id)) continue;
+      add(path.posix.join(spec.dir, `${a.id}${spec.ext}`), spec.render(a));
+    }
   }
 
   // 4. Root instruction files as managed blocks (never clobbers user content).
@@ -61,7 +71,8 @@ export function buildOps(root, target, agentIds) {
   };
   const template = fs.readFileSync(path.join(root, SA, 'templates', 'project-instructions.md'), 'utf8');
   const dirList = skillDirs.map((d) => `\`${d}/\``).join(', ');
-  ops.push({ path: 'AGENTS.md', kind: 'block', blockId: 'core', content: template.replaceAll('{{SKILLS_DIRS}}', dirList).replaceAll('{{AGENTS}}', agentIds.join(', ')) });
+  ops.push({ path: 'AGENTS.md', kind: 'block', blockId: 'core', content: template.replaceAll('{{SKILLS_DIRS}}', dirList).replaceAll('{{AGENTS}}', agentIds.join(', '))
+    .replaceAll('{{PROFILE}}', profileNames.join(', ')) });
   for (const id of agentIds) {
     const instr = ADAPTERS[id].instructions;
     if (instr) ops.push({ path: instr.path, kind: 'block', blockId: 'core', content: instr.render(ctx) });
@@ -110,12 +121,13 @@ export async function run(args, opts) {
     agentIds = detected.length ? detected : ['generic'];
     ui.info(`No --agent given; ${detected.length ? `detected: ${detected.join(', ')}` : 'no agents detected, using generic (AGENTS.md + .agents/skills)'}`);
   }
-  const ops = buildOps(root, target, agentIds);
+  const profileNames = parseProfiles(opts.profile);
+  const ops = buildOps(root, target, agentIds, profileNames);
   const result = plan(target, ops, { force: !!opts.force });
   const counts = summarize(result.actions);
 
   ui.heading(`ship-anything init → ${target}`);
-  ui.info(`agents: ${agentIds.map((i) => ADAPTERS[i].label).join(', ')}`);
+  ui.info(`agents: ${agentIds.map((i) => ADAPTERS[i].label).join(', ')} · profile: ${profileNames.join(', ')}`);
   printPlan(result.actions, opts.verbose);
   ui.info(`create ${counts.create} · update ${counts.update} · append ${counts.append} · unchanged ${counts.unchanged} · conflicts ${counts.conflict}`);
 
@@ -126,7 +138,7 @@ export async function run(args, opts) {
     const ok = await confirm('Apply these changes?');
     if (!ok) { ui.warn('Aborted. Re-run with --yes to apply non-interactively, or --dry-run to preview.'); return 1; }
   }
-  const tx = apply(target, result, { command: 'init', agents: agentIds, manifest: { agents: agentIds } });
+  const tx = apply(target, result, { command: 'init', agents: agentIds, manifest: { agents: agentIds, profile: profileNames } });
   ui.ok(`Applied transaction ${tx.id}: ${tx.created.length} created, ${tx.updated.length} updated.`);
   if (counts.conflict) ui.warn(`${counts.conflict} file(s) skipped to protect local changes. Review them or re-run with --force (backups are kept).`);
   ui.info('Undo with: ship-anything rollback');
@@ -154,9 +166,14 @@ function printPlan(actions, verbose) {
   }
 }
 
-export const help = `ship-anything init [--agent claude|codex|opencode|cursor|gemini|generic|all[,..]] [--dry-run] [--yes] [--force] [--verbose] [--cwd <dir>]
+export const help = `ship-anything init [--agent claude|codex|opencode|cursor|gemini|generic|all[,..]] [--profile full|web|mobile|desktop|creative|reverse[,..]] [--dry-run] [--yes] [--force] [--verbose] [--cwd <dir>]
 
 Installs SHIP ANYTHING into the current project. Idempotent: unchanged files are skipped,
 files you modified are never overwritten (unless --force, which keeps a backup), and root
 instruction files get a marked block instead of being replaced. Undo with \`ship-anything rollback\`.
-Agents: ${AGENT_IDS.join(', ')}`;
+Agents: ${AGENT_IDS.join(', ')}
+
+--profile limits what your agent preloads at startup to the agents and skills that kind of project
+needs (default: full). Everything else is kept in .ship-anything/skills/ and read only on demand.
+Switching to a smaller profile later does not delete files; run \`ship-anything rollback\` first.
+Profiles: ${Object.keys(PROFILES).join(', ')}`;

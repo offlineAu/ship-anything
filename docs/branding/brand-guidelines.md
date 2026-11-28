@@ -9,7 +9,7 @@ those assets. Each asset gets its own review against this document before it is 
 
 ## 1. What the brand has to say
 
-SHIP ANYTHING is a set of portable instructions (22 specialist agents, 57 skills, composable
+SHIP ANYTHING is a set of portable instructions (22 specialist agents, 63 skills, composable
 workflows, policies) plus a small CLI that installs them into the coding agent you already
 use. It does not run its own model. The brand should read like a well-made engineering
 tool, not like an AI product launch.
@@ -187,7 +187,7 @@ so typography, color and timing come from the same tokens as the web.
 
 - **Avatar:** the symbol or monogram on `--sa-bg` dark, accent used once. Must read at 48 px.
 - **Banner / Open Graph card:** 1200×630 (OG) and 1500×500 (banner). Wordmark, tagline and one real artifact (a wave diagram or terminal frame). No collage.
-- **Posts:** lead with a concrete thing shown working ("`init --agent opencode` installs 22 agents and 57 skills; here is the plan it produced"). Link to the source or the recording.
+- **Posts:** lead with a concrete thing shown working ("`init --agent opencode` installs 22 agents and 63 skills; here is the plan it produced"). Link to the source or the recording.
 - **Threads:** one idea per post, one image per post, alt text always.
 - **Disclosure:** posts produced with help from SHIP ANYTHING or another AI tool say so when it matters.
 - **Never:** engagement bait, countdown hype, fake scarcity, unverified compatibility logos ("works with everything"), or third-party logos without permission and correct trademark use.
@@ -198,7 +198,7 @@ Voice: a senior engineer explaining a system they trust and know the limits of.
 
 | Do | Don't |
 |---|---|
-| "Installs 22 agents and 57 skills into `.claude/` and `.agents/`." | "Unleash a team of AI superagents!" |
+| "Installs 22 agents and 63 skills into `.claude/` and `.agents/`." | "Unleash a team of AI superagents!" |
 | "Cursor adapter: written from Cursor's docs, not yet tested." | "Works with every AI coding tool." |
 | "QA re-runs the checks; a task cannot verify itself." | "Bulletproof, bug-free code, guaranteed." |
 | "Production deploys need your explicit approval." | "Fully autonomous, hands-off shipping." |

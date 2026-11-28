@@ -6,7 +6,7 @@ description: >-
   integrates results, enforces quality gates and owns the final handoff.
 role: Orchestrator / Delivery Lead
 required_skills: [parallel-agent-coordination, context-management, requirements-analysis, code-review]
-optional_skills: [token-optimization, persistent-project-memory, codebase-intelligence, repository-mapping, existing-project-audit, production-readiness, terminal-output-optimization]
+optional_skills: [token-optimization, persistent-project-memory, codebase-intelligence, repository-mapping, existing-project-audit, production-readiness, terminal-output-optimization, spec-driven-development]
 capabilities: [read, write, shell, web, delegate]
 ---
 

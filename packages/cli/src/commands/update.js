@@ -10,7 +10,7 @@ import * as init from './init.js';
 export async function run(args, opts) {
   const manifest = loadManifest(opts.cwd ?? process.cwd());
   if (!manifest.agents?.length) { ui.error('No installation found. Run `ship-anything init` first.'); return 1; }
-  return init.run(args, { ...opts, agent: opts.agent ?? manifest.agents.join(',') });
+  return init.run(args, { ...opts, agent: opts.agent ?? manifest.agents.join(','), profile: opts.profile ?? manifest.profile?.join(',') });
 }
 
 export const help = `ship-anything update [--dry-run] [--yes] [--force]

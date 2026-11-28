@@ -6,7 +6,7 @@ description: >-
   work, when scope is ambiguous, or when a change request alters what "done" means.
 role: Product Director
 required_skills: [product-discovery, requirements-analysis]
-optional_skills: [competitive-product-analysis, product-research]
+optional_skills: [competitive-product-analysis, product-research, spec-driven-development]
 capabilities: [read, write, web]
 ---
 

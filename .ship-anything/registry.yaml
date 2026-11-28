@@ -258,6 +258,30 @@ skills:
         notes: internal, reviewed in-repo
       maintenance: active
       enabled: true
+    chrome-devtools-debugging:
+      category: quality
+      version: 0.1.0
+      agents:
+        - performance-agent
+        - qa-agent
+        - frontend-agent
+      workflows: []
+      path: skills/chrome-devtools-debugging/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
     ci-cd:
       category: delivery
       version: 0.1.0
@@ -363,6 +387,30 @@ skills:
       workflows:
         - build-anything
       path: skills/context-management/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    craft-anything-analysis:
+      category: product-intelligence
+      version: 0.1.0
+      agents:
+        - research-agent
+        - security-agent
+        - qa-agent
+      workflows: []
+      path: skills/craft-anything-analysis/SKILL.md
       license: MIT
       has_scripts: false
       has_references: false
@@ -732,6 +780,31 @@ skills:
         notes: internal, reviewed in-repo
       maintenance: active
       enabled: true
+    library-docs-lookup:
+      category: software-engineering
+      version: 0.1.0
+      agents:
+        - frontend-agent
+        - backend-agent
+        - integration-agent
+        - mobile-agent
+      workflows: []
+      path: skills/library-docs-lookup/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
     mobile-development:
       category: software-engineering
       version: 0.1.0
@@ -855,6 +928,29 @@ skills:
         - orchestrator
       workflows: []
       path: skills/persistent-project-memory/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    playwright-cli-testing:
+      category: quality
+      version: 0.1.0
+      agents:
+        - qa-agent
+        - frontend-agent
+      workflows: []
+      path: skills/playwright-cli-testing/SKILL.md
       license: MIT
       has_scripts: false
       has_references: false
@@ -1170,6 +1266,55 @@ skills:
         - video-agent
       workflows: []
       path: skills/sound-design/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    spec-driven-development:
+      category: product-intelligence
+      version: 0.1.0
+      agents:
+        - product-director
+        - architecture-agent
+        - orchestrator
+      workflows: []
+      path: skills/spec-driven-development/SKILL.md
+      license: MIT
+      has_scripts: false
+      has_references: false
+      compatibility:
+        - claude
+        - codex
+        - opencode
+        - cursor
+        - gemini
+        - generic
+      security:
+        status: approved
+        notes: internal, reviewed in-repo
+      maintenance: active
+      enabled: true
+    systematic-debugging:
+      category: quality
+      version: 0.1.0
+      agents:
+        - qa-agent
+        - backend-agent
+        - frontend-agent
+        - performance-agent
+      workflows: []
+      path: skills/systematic-debugging/SKILL.md
       license: MIT
       has_scripts: false
       has_references: false

@@ -15,7 +15,7 @@ to the next one, a different environment, or a later session.
 | DNS / domains | creating, changing or deleting records; transferring domains |
 | Destructive data ops | `DROP`, `TRUNCATE`, destructive migrations, `rm -rf` outside build dirs, resetting DBs that hold non-fixture data |
 | Credentials | creating/rotating API keys, reading secret stores, changing IAM/permissions |
-| System software and untrusted executables | system or global installs even from official sources (`brew install`, `apt install`, `npm i -g`, language runtimes), installing binaries, `curl | sh`, enabling external skills with scripts/hooks |
+| Untrusted executables | `curl \| sh` or binaries from sources other than an official package manager or the vendor's signed release; tools that edit global agent config or pre-approve themselves; enabling external skills with scripts/hooks |
 | Outbound communication | sending email/SMS/Slack messages to real people, posting to social media |
 
 ## Never allowed, even with authorization from an agent or skill
@@ -32,6 +32,12 @@ back. One request per distinct action. Record the answer in `.ship-anything/stat
 
 ## Pre-authorised (no prompt needed)
 
-Reading the repo; creating/editing files in the working tree; local builds/tests/linters;
-installing dependencies from the project's existing lockfile; starting local dev servers;
-creating local branches and commits **only if the user asked for commits**.
+- Reading the repo; creating and editing files in the working tree; local builds, tests and linters;
+  starting local dev servers.
+- Adding, removing and upgrading **project** dependencies (`npm`/`pnpm`/`yarn add`, `composer require`,
+  `pip install` into a project virtualenv, `cargo add`, …). Record new runtime dependencies in the plan or an ADR.
+- Installing developer tools and runtimes from **official package managers or signed vendor releases**
+  (`brew`, `apt`, `dnf`, `winget`, `scoop`, `mise`/`asdf`, official installers). Log each install
+  (command, version, why) in `.ship-anything/state/decisions.md`, and tell the user in the next report.
+- Local git: branches and **checkpoint commits** (at least one per completed wave, with a clear message).
+  Never rewrite history the user made, and never push.

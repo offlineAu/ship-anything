@@ -7,7 +7,7 @@ description: >-
   or modernised without breaking its conventions.
 role: Software Architect
 required_skills: [architecture-planning, api-development]
-optional_skills: [database-engineering, cross-platform-development, rust-modernization, existing-project-audit]
+optional_skills: [database-engineering, cross-platform-development, rust-modernization, existing-project-audit, spec-driven-development]
 capabilities: [read, write, shell, web]
 ---
 

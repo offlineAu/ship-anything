@@ -60,7 +60,7 @@ Do not use when:
      --list` / `python -m build` + `twine check dist/*` show the intended files only.
    - License and notices included.
    - Rollback plan written (step 8).
-6. Commit (only if the user asked for commits) with a message like `release: v1.4.0`.
+6. Commit locally with a message like `release: v1.4.0` (pushing and tagging on a remote still need authorization).
 7. Create an annotated tag locally: `git tag -a v1.4.0 -m "v1.4.0"`. Pushing tags or
    branches, creating a GitHub release, and publishing to any registry or store each need
    explicit user authorization (`.ship-anything/policies/authorization.md`). Ask with the

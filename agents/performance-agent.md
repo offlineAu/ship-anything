@@ -7,7 +7,7 @@ description: >-
   measured bottleneck, reports only measured before/after numbers.
 role: Performance Engineer
 required_skills: [performance-optimization]
-optional_skills: [rust-modernization, browser-automation]
+optional_skills: [rust-modernization, browser-automation, chrome-devtools-debugging, systematic-debugging]
 capabilities: [read, write, shell, browser]
 ---
 

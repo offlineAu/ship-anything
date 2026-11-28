@@ -39,6 +39,7 @@ const OPTIONS = {
   json: { type: 'boolean' },
   cwd: { type: 'string' },
   skill: { type: 'string', short: 's' },
+  profile: { type: 'string', short: 'p' },
   category: { type: 'string' },
   content: { type: 'boolean' },
   'allow-scripts': { type: 'boolean' },

@@ -28,7 +28,7 @@ it, your agent works like a product team:
 
 - a **lead** (the *orchestrator*) that plans the work and keeps everyone honest;
 - **22 specialists** for frontend, backend, database, design, 3D, video, security, QA, release and more;
-- **57 skills**: step-by-step playbooks the specialists load only when they need them;
+- **63 skills**: step-by-step playbooks the specialists load only when they need them;
 - **15 workflows**: ready-made routes for a website, web app, mobile app, 3D product, video and other kinds of work;
 - **safety rules**: it asks you before anything risky, such as pushing code, deploying, publishing or spending money.
 
@@ -121,7 +121,7 @@ see its plan in `.ship-anything/state/plan.yaml`.
 Tips for better results:
 - **Describe the outcome, not the steps.** Say who it's for and what "done" looks like.
 - **Mention constraints:** framework, hosting, budget, "no paid services", deadlines.
-- **On big jobs, commit often.** The agent will ask whether it may make local checkpoint commits.
+- **Checkpoints are automatic.** The agent makes a local commit after each wave (it never pushes), so you can always roll back.
 - **Coming back later?** Open the agent and say "continue". It resumes from `.ship-anything/state/`.
 
 ## Words you will see
@@ -142,7 +142,15 @@ Tips for better results:
 **Does it cost anything?** SHIP ANYTHING is free (MIT). Your agent's normal usage costs still apply, and
 big L4 jobs use a lot of tokens.
 
-**Will it deploy or push code on its own?** No. Those actions always wait for your explicit OK.
+**Will it deploy or push code on its own?** No. Pushing, deploying, publishing, paying and deleting data
+always wait for your explicit OK. Everyday local work doesn't: it installs project packages and dev tools
+from official sources (for example `brew install php`, logged in `decisions.md`) and commits locally after
+each wave.
+
+**Does it load all 60+ skills every time?** No. Your agent sees only short skill descriptions at startup,
+and each task opens at most three skill bodies. To shrink startup further, install a profile with only what
+your project needs: `npx ship-anything init --profile web` (also `mobile`, `desktop`, `creative`,
+`reverse`, or several joined with commas). Everything else stays available on demand in `.ship-anything/skills/`.
 
 **Can I use it in an existing project?** Yes. `init` adds a marked block to your existing `AGENTS.md`,
 `CLAUDE.md` and `.gitignore` and never overwrites files you've changed. For existing code, ask it to
@@ -242,16 +250,27 @@ See [workflows/README.md](workflows/README.md).
 
 ## Token efficiency
 
-Measured with `node scripts/benchmark/context-budget.mjs` on 2026-11-26 (22 agents, 57 skills, 15 workflows).
+Measured with `node scripts/benchmark/context-budget.mjs` on 2026-11-28 (22 agents, 63 skills, 15 workflows).
 This is a static measure of instruction volume, with tokens **estimated** as bytes/4:
 
 | Scenario | Est. tokens | % of load-everything baseline |
 |---|---|---|
-| Baseline: every agent + skill + workflow in context | 160,036 | 100% |
-| Startup: instruction block + skill names/descriptions | 6,786 | 4.2% |
-| Typical task: frontend-agent + web-app workflow + required skills | 17,643 | 11.0% |
-| Typical task: backend-agent + fullstack-platform | 18,848 | 11.8% |
-| Typical task: video-agent + video-production | 15,379 | 9.6% |
+| Baseline: every agent + skill + workflow in context | 173,434 | 100% |
+| Startup: instruction block + skill names/descriptions | 7,894 | 4.6% |
+| Typical task: frontend-agent + web-app workflow + required skills | 18,781 | 10.8% |
+| Typical task: backend-agent + fullstack-platform | 19,974 | 11.5% |
+| Typical task: video-agent + video-production | 16,494 | 9.5% |
+
+Startup by install profile (`init --profile`), counting skill **and** agent metadata the host preloads:
+
+| Profile | Native skills | Native agents | Est. startup tokens |
+|---|---|---|---|
+| full (default) | 63 | 22 | 9,643 |
+| web | 42 | 18 | 6,953 (−28%) |
+| mobile | 39 | 17 | 6,571 (−32%) |
+| desktop | 39 | 17 | 6,560 (−32%) |
+| creative | 46 | 20 | 7,531 (−22%) |
+| reverse | 39 | 16 | 6,498 (−33%) |
 
 Raw output: `reports/context-budget.json`.
 

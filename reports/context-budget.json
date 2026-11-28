@@ -2,17 +2,55 @@
   "method": "static instruction volume; tokens estimated as bytes/4",
   "counts": {
     "agents": 22,
-    "skills": 57,
+    "skills": 63,
     "workflows": 15
   },
   "baseline": {
-    "bytes": 640145,
-    "est_tokens": 160036
+    "bytes": 693734,
+    "est_tokens": 173434
   },
   "startup": {
-    "bytes": 27142,
-    "est_tokens": 6786,
-    "pct_of_baseline": 4.2
+    "bytes": 31577,
+    "est_tokens": 7894,
+    "pct_of_baseline": 4.6
+  },
+  "startup_by_profile": {
+    "full": {
+      "skills": 63,
+      "agents": 22,
+      "bytes": 38570,
+      "est_tokens": 9643
+    },
+    "web": {
+      "skills": 42,
+      "agents": 18,
+      "bytes": 27810,
+      "est_tokens": 6953
+    },
+    "mobile": {
+      "skills": 39,
+      "agents": 17,
+      "bytes": 26285,
+      "est_tokens": 6571
+    },
+    "desktop": {
+      "skills": 39,
+      "agents": 17,
+      "bytes": 26238,
+      "est_tokens": 6560
+    },
+    "creative": {
+      "skills": 46,
+      "agents": 20,
+      "bytes": 30123,
+      "est_tokens": 7531
+    },
+    "reverse": {
+      "skills": 39,
+      "agents": 16,
+      "bytes": 25992,
+      "est_tokens": 6498
+    }
   },
   "per_task": {
     "agent": "frontend-agent",
@@ -22,8 +60,8 @@
       "frontend-development",
       "responsive-design"
     ],
-    "bytes": 70571,
-    "est_tokens": 17643,
-    "pct_of_baseline": 11
+    "bytes": 75125,
+    "est_tokens": 18781,
+    "pct_of_baseline": 10.8
   }
 }

@@ -6,7 +6,7 @@ description: >-
   browser-rendered surface, UI bug, or client-side behaviour change in a web app.
 role: Frontend Engineer
 required_skills: [frontend-development, responsive-design, accessibility-engineering]
-optional_skills: [frontend-polish, interaction-design, fullstack-development, browser-automation]
+optional_skills: [frontend-polish, interaction-design, fullstack-development, browser-automation, playwright-cli-testing, chrome-devtools-debugging, library-docs-lookup, systematic-debugging]
 capabilities: [read, write, shell, browser]
 ---
 

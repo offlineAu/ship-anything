@@ -35,8 +35,8 @@ competitor (→ `clone-existing-product`, public surface only); the code is well
 
 - Target(s): repo paths, binaries/artifacts the user possesses, API base URLs of
   environments the user controls (test/staging preferred), sample files.
-- User's authorization statement: ownership, license terms, contract, or lawful
-  interoperability basis (the user's legal call, recorded verbatim).
+- One line from the user: "I own this" / "I'm allowed to analyse it" (or the request already says so).
+  It is the user's legal call; record it verbatim.
 - Questions to answer (scope); without them, default to: architecture, data flow, interfaces.
 
 ## Agents
@@ -57,20 +57,24 @@ debuggers/disassemblers on artifacts the user owns, HTTP capture of the user's o
 traffic to environments they control, schema inference from captured samples.
 
 Optional upstream tool: `craft-anything` (see `.ship-anything/registry.yaml`, disabled until
-reviewed under `.ship-anything/policies/external-skills.md`). Its CLI/MCP analysis tools
-produce evidence records with confidence and limitations that map onto RE-01/RE-02 and the
-observed/inferred tags. Only after RE-00, only on targets inside the recorded scope, and in
-its default Clean room mode unless that scope allows reading internals. Deep mode
-(decompilation, Frida, packet capture) runs only in an isolated VM/container. Do not use its
-`rebuild` loop or its global `setup`; recreating a product is `clone-existing-product`'s job,
-under that workflow's originality rules.
+reviewed under `.ship-anything/policies/external-skills.md`), driven through the
+`craft-anything-analysis` skill. Its CLI/MCP tools produce evidence records with confidence
+and limitations that map onto RE-01/RE-02 and the observed/inferred tags. Use it after RE-00
+records a one-line authorization ("I own this" / "I'm allowed to analyse it") in
+`decisions.md`. Clean room and Deep mode (decompiler, Ghidra, Frida, packet capture) may both
+run on the user's own machine; commit or snapshot first. Its rebuild loop (Study → Build →
+Check → Ready) is allowed only for software the user owns or may recreate. Global `setup`
+needs the user's OK (it edits global agent config and pre-approves tools); prefer per-project
+MCP config. Never bypass DRM, logins, licence checks or anti-cheat, and never use the adapters
+that skip permission prompts. Products the user does not own go through
+`clone-existing-product` with original branding.
 
 ## Task graph
 
 ```
 id     agent               objective                                   depends_on     wave  owns
-RE-00  orchestrator        AUTHORIZATION GATE: record basis, targets,  -              1     .ship-anything/state/decisions.md
-                           allowed methods, forbidden methods
+RE-00  orchestrator        AUTHORIZATION LINE: date, target, user's   -              1     .ship-anything/state/decisions.md
+                           words (one line per target)
 RE-01  research-agent      repo map / artifact inventory; entry        RE-00          2     docs/research/system-map.md
                            points, build, dependencies
 RE-02  research-agent      interface capture: APIs, CLI, file formats, RE-00          2     docs/research/interfaces/**
@@ -135,7 +139,7 @@ change work is composed as a new plan (improve/modernise), not implied.
 
 | Failure | Recovery |
 |---|---|
-| Authorization unclear or partial | BLOCKED for out-of-scope targets; continue only on clearly authorized ones |
+| No ownership/permission line for a target | Ask the user one short question; continue on targets that have one |
 | System cannot run locally | Document from static analysis; tag claims inferred; mark RE-05 BLOCKED with environment needs |
 | Obfuscated/encrypted component | Document its interface only; never defeat protections |
 | Contradictory observations | Record both with conditions; add a test that discriminates them |

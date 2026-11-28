@@ -30,7 +30,8 @@
   "scripts": {
     "test": "node --test",
     "bundle-content": "node scripts/bundle-content.mjs",
-    "prepack": "node scripts/bundle-content.mjs"
+    "prepack": "node scripts/bundle-content.mjs",
+    "postpack": "node -e \"require('fs').rmSync('content',{recursive:true,force:true})\""
   },
   "keywords": [
     "agent-skills",

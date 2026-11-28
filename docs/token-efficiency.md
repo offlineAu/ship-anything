@@ -14,6 +14,9 @@ This document covers what is implemented, what has been measured, and what hasn'
 | Persistent structured state | `.ship-anything/state/` (`plan.yaml`, `decisions.md`, `repo-map.md`, `tasks/`) | Avoids repeated discovery across sessions and agents |
 | Repository maps | `repository-mapping` and `codebase-intelligence` skills, Repomix (registered) | One cached map instead of every agent re-walking the tree |
 | Terminal output discipline | `terminal-output-optimization` skill; RTK optional and user-installed | Concise command output that never hides errors |
+| Install profiles | `init --profile web\|mobile\|desktop\|creative\|reverse` | Only the agents and skills a kind of project needs are preloaded; the rest wait in `.ship-anything/skills/` and are read by path on demand |
+| Per-task skill cap | instruction block, task contracts | Each contract lists at most 3 skills; specialists never browse the catalog |
+| CLI over MCP | instruction block, `playwright-cli-testing`, `chrome-devtools-debugging` | MCP servers add tool schemas to every turn, so they're enabled only for the task that needs them |
 | Ownership registry | `plan.yaml` `owns:` globs | No duplicated investigations or conflicting edits |
 
 ## Measured: static instruction volume
@@ -23,16 +26,27 @@ compares a naive baseline (every agent, skill and workflow in context) with star
 skill metadata) and a typical task (orchestrator, one specialist, its required skills and one workflow).
 Tokens are **estimated as bytes/4**, not counted with a model tokenizer.
 
-Measured with `node scripts/benchmark/context-budget.mjs` on 2026-11-26 (22 agents, 57 skills, 15 workflows).
+Measured with `node scripts/benchmark/context-budget.mjs` on 2026-11-28 (22 agents, 63 skills, 15 workflows).
 This is a static measure of instruction volume, with tokens **estimated** as bytes/4:
 
 | Scenario | Est. tokens | % of load-everything baseline |
 |---|---|---|
-| Baseline: every agent + skill + workflow in context | 160,036 | 100% |
-| Startup: instruction block + skill names/descriptions | 6,786 | 4.2% |
-| Typical task: frontend-agent + web-app workflow + required skills | 17,643 | 11.0% |
-| Typical task: backend-agent + fullstack-platform | 18,848 | 11.8% |
-| Typical task: video-agent + video-production | 15,379 | 9.6% |
+| Baseline: every agent + skill + workflow in context | 173,434 | 100% |
+| Startup: instruction block + skill names/descriptions | 7,894 | 4.6% |
+| Typical task: frontend-agent + web-app workflow + required skills | 18,781 | 10.8% |
+| Typical task: backend-agent + fullstack-platform | 19,974 | 11.5% |
+| Typical task: video-agent + video-production | 16,494 | 9.5% |
+
+Startup by install profile (`init --profile`), counting skill **and** agent metadata the host preloads:
+
+| Profile | Native skills | Native agents | Est. startup tokens |
+|---|---|---|---|
+| full (default) | 63 | 22 | 9,643 |
+| web | 42 | 18 | 6,953 (−28%) |
+| mobile | 39 | 17 | 6,571 (−32%) |
+| desktop | 39 | 17 | 6,560 (−32%) |
+| creative | 46 | 20 | 7,531 (−22%) |
+| reverse | 39 | 16 | 6,498 (−33%) |
 
 Raw output: `reports/context-budget.json`.
 

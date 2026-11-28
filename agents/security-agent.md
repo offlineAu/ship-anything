@@ -7,7 +7,7 @@ description: >-
   infra exposure, and before release.
 role: Security Engineer
 required_skills: [security-audit, authentication-and-authorization]
-optional_skills: [code-review, reverse-engineering]
+optional_skills: [code-review, reverse-engineering, craft-anything-analysis]
 capabilities: [read, write, shell, web]
 ---
 

@@ -6,7 +6,7 @@ description: >-
   server action, job, or auth flow, and for server-side bugs, against frozen API contracts.
 role: Backend Engineer
 required_skills: [backend-development, api-development, authentication-and-authorization]
-optional_skills: [fullstack-development, database-engineering, rust-modernization]
+optional_skills: [fullstack-development, database-engineering, rust-modernization, library-docs-lookup, systematic-debugging]
 capabilities: [read, write, shell]
 ---
 

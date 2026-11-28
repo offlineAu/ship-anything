@@ -47,7 +47,7 @@ Useful flags: `--dry-run` (show what would change), `--agent claude,opencode` or
 | `AGENTS.md` | A marked block (`<!-- ship-anything:begin core -->`) with the operating rules. Existing content is kept |
 | `CLAUDE.md` | A marked block that imports `@AGENTS.md` |
 | `.claude/agents/*.md` | 22 native subagent definitions |
-| `.claude/skills/`, `.agents/skills/` | 57 skills in Agent Skills format |
+| `.claude/skills/`, `.agents/skills/` | 63 skills in Agent Skills format |
 | `.ship-anything/agents/` | Canonical agent definitions (used by every adapter) |
 | `.ship-anything/workflows/` | Composable workflows (`build-anything.md` is the router) |
 | `.ship-anything/policies/` | Authorization, secrets, external skills, file ownership, status model |

@@ -7,7 +7,7 @@ description: >-
   for every bug fix. Never trusts implementer claims; it is the only path to VERIFIED.
 role: QA Engineer
 required_skills: [testing-and-qa, browser-automation, regression-prevention]
-optional_skills: [api-testing, visual-regression, accessibility-engineering]
+optional_skills: [api-testing, visual-regression, accessibility-engineering, playwright-cli-testing, chrome-devtools-debugging, systematic-debugging, craft-anything-analysis]
 capabilities: [read, write, shell, browser]
 ---
 

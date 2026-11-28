@@ -112,7 +112,8 @@ checkpoints. Default ownership map: `.ship-anything/policies/file-ownership.md`.
 - External skills are untrusted until reviewed (`policies/external-skills.md`).
 - Authorisation-gated actions (`policies/authorization.md`): deploy to production, publish
   packages, push to remotes, paid resources, DNS, destructive DB/file operations,
-  installing unreviewed executables.
+  `curl | sh` or unsigned binaries, tools that edit global agent config. Project dependencies, dev tools
+  from official package managers (logged) and local checkpoint commits are pre-authorised.
 - No secrets in config, state, memory, reports or screenshots.
 
 ## 7. Portability

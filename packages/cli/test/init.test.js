@@ -120,3 +120,30 @@ test('unknown agent is rejected with a helpful message', () => {
   assert.equal(r.code, 1);
   assert.match(r.out, /Unknown agent\(s\): windsurf/);
 });
+
+test('init --profile web keeps creative skills and agents out of native dirs but on demand', () => {
+  const dir = tmpProject();
+  const r = cli(['init', '--agent', 'claude', '--profile', 'web', '--yes'], dir);
+  assert.equal(r.code, 0, r.out);
+  assert.match(r.out, /profile: web/);
+  assert.ok(exists(dir, '.claude/skills/frontend-development/SKILL.md'));
+  assert.ok(exists(dir, '.claude/skills/token-optimization/SKILL.md'), 'efficiency skills are always native');
+  assert.equal(exists(dir, '.claude/skills/blender-production'), false);
+  assert.ok(exists(dir, '.ship-anything/skills/blender-production/SKILL.md'), 'library copy for on-demand reads');
+  assert.equal(exists(dir, '.ship-anything/skills/frontend-development'), false, 'no duplicate of native skills');
+  assert.ok(exists(dir, '.claude/agents/frontend-agent.md'));
+  assert.equal(exists(dir, '.claude/agents/blender-agent.md'), false);
+  assert.ok(exists(dir, '.ship-anything/agents/blender-agent.md'), 'canonical agents stay complete');
+  assert.match(read(dir, 'AGENTS.md'), /Installed profile: web\./);
+  const manifest = JSON.parse(read(dir, '.ship-anything/state/install-manifest.json'));
+  assert.deepEqual(manifest.profile, ['web']);
+  const u = cli(['update', '--yes'], dir);
+  assert.match(u.out, /profile: web/);
+  assert.match(u.out, /Already up to date/);
+});
+
+test('unknown profile is rejected', () => {
+  const r = cli(['init', '--agent', 'generic', '--profile', 'nope', '--dry-run'], tmpProject());
+  assert.notEqual(r.code, 0);
+  assert.match(r.out, /Unknown profile: nope/);
+});

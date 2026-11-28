@@ -7,7 +7,7 @@ description: >-
   be cited.
 role: Research Analyst
 required_skills: [product-research, competitive-product-analysis]
-optional_skills: [reverse-engineering, codebase-intelligence]
+optional_skills: [reverse-engineering, codebase-intelligence, craft-anything-analysis]
 capabilities: [read, write, web, browser]
 ---
 

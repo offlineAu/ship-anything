@@ -7,7 +7,7 @@ description: >-
   external API or SDK integration or webhook.
 role: Integration Engineer
 required_skills: [integration-engineering, api-development]
-optional_skills: [authentication-and-authorization, api-testing]
+optional_skills: [authentication-and-authorization, api-testing, library-docs-lookup]
 capabilities: [read, write, shell, web]
 ---
 

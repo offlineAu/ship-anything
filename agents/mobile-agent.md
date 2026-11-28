@@ -7,7 +7,7 @@ description: >-
   bug.
 role: Mobile Engineer
 required_skills: [mobile-development, cross-platform-development]
-optional_skills: [accessibility-engineering, responsive-design]
+optional_skills: [accessibility-engineering, responsive-design, library-docs-lookup]
 capabilities: [read, write, shell]
 ---
 
